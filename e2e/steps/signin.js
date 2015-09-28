@@ -28,7 +28,7 @@ var container = {
     }
 };
 
-var steps = require('./shipment.js');
+var steps = require('./general.js');
 steps.apply(container);
 
 

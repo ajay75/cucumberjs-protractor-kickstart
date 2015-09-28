@@ -3,7 +3,7 @@
 var settings = require('../e2e-settings');
 var chai = require('chai');
 chai.use(require('chai-as-promised'));
-var shippingPackage = require('../public/variables.po.js');
+var getVariable = require('../public/variables.po.js');
 var expect = chai.expect;
 var SelectWrapper  = require('../support/select-wrapper');
 
@@ -12,27 +12,27 @@ module.exports = function () {
     return browser.get(settings.url('public/logout'));
   });
 
-  this.Given(/^I am on the TNT Create Shipment Page$/, function (callback) {
-    var elName = '.e2e__country';
-    browser.get(settings.url(settings.pages.public.createShipping.createShippingSender));
+  this.Given(/^I am on the "page name" page$/, function (pagename, callback) {
+    var elName = 'h1';
+    browser.get(settings.url(settings.pages.public.createShipping[pagename]));
     checkpageforcsselement(elName, callback);
   });
 
   this.Given(/^I click the "([^"]*)" button$/, function (fieldname, callback) {
-    shippingPackage[fieldname.replace(/\s+/g, '')].click().then(callback);
+    getVariable[fieldname.replace(/\s+/g, '')].click().then(callback);
   });
 
   this.Given(/^I fill in "([^"]*)" with "([^"]*)"$/, function (fieldName, fieldValue, callback) {
-    shippingPackage[fieldName.replace(/\s+/g, '')].clear();
-    sendKeys(shippingPackage[fieldName.replace(/\s+/g, '')], fieldValue);
-    expect(shippingPackage[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
+    getVariable[fieldName.replace(/\s+/g, '')].clear();
+    sendKeys(getVariable[fieldName.replace(/\s+/g, '')], fieldValue);
+    expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
   });
 
   this.Given(/^I select "([^"]*)" from "([^"]*)" dropdown$/, function (fieldValue, fieldName, callback) {
-    var dropdownField = shippingPackage[fieldName.replace(/\s+/g, '')];
+    var dropdownField = getVariable[fieldName.replace(/\s+/g, '')];
     sendKeys(dropdownField, fieldValue);
     dropdownField.sendKeys(protractor.Key.TAB);
-    expect(shippingPackage[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
+    expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
   });
 
   this.Given(/^I select tomorrows date from date dropdown$/, function (callback) {
@@ -48,12 +48,12 @@ module.exports = function () {
 
 
   this.Then(/^I should see "([^"]*)" in the "([^"]*)" area$/, function (txt, area, callback) {
-    expect(shippingPackage[area.replace(/\s+/g, '')].getText()).to.eventually.contain(txt).and.notify(callback);
+    expect(getVariable[area.replace(/\s+/g, '')].getText()).to.eventually.contain(txt).and.notify(callback);
   });
 
 
   this.Then(/^I should not see "([^"]*)" in the "([^"]*)" area$/, function (txt, area, callback) {
-    expect(shippingPackage[area.replace(/\s+/g, '')].getText()).to.eventually.not.contain(txt).and.notify(callback);
+    expect(getVariable[area.replace(/\s+/g, '')].getText()).to.eventually.not.contain(txt).and.notify(callback);
   });
 
   this.Then(/^"([^"]*)" fields are displayed with error message$/, function (numOfErrors, callback) {
@@ -72,7 +72,7 @@ module.exports = function () {
     var data = table.hashes();
     for (var i = 0; i < data.length; i++) {
       inputData = data[i].field;
-      fieldEl = shippingPackage[inputData.replace(/\s+/g, '')];
+      fieldEl = getVariable[inputData.replace(/\s+/g, '')];
       fieldEl.clear();
       var p = fieldEl.sendKeys(data[i].content);
       if (i === data.length - 1) {
@@ -115,7 +115,7 @@ module.exports = function () {
       {field: 'postal Code Receiver', content: '1000AA'}];
     for (var i = 0; i < data.length; i++) {
       var inputData = data[i].field;
-      var fieldEl = shippingPackage[inputData.replace(/\s+/g, '')];
+      var fieldEl = getVariable[inputData.replace(/\s+/g, '')];
       var p = fieldEl.sendKeys(data[i].content);
       if (i === data.length - 1) {
         p.then(callback);
@@ -125,33 +125,33 @@ module.exports = function () {
 
 
   this.Then(/^I should see the "([^"]*)" field$/, function (elementName, callback) {
-    //var elementNameParsed = shippingPackage[elementName.replace(/\s+/g, '')];
-    expect(shippingPackage[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).and.notify(callback);
+    //var elementNameParsed = getVariable[elementName.replace(/\s+/g, '')];
+    expect(getVariable[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).and.notify(callback);
   });
 
   this.Then(/^I should not see the "([^"]*)" field$/, function (elementName, callback) {
-    expect(shippingPackage[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(false).and.notify(callback);
+    expect(getVariable[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(false).and.notify(callback);
   });
 
   this.Then(/^I should see value "([^"]*)" in the "([^"]*)" field$/, function (texttoFind, fieldRef, callback) {
-    expect(shippingPackage[fieldRef.replace(/\s+/g, '')].getText())
+    expect(getVariable[fieldRef.replace(/\s+/g, '')].getText())
       .to.eventually.contain(texttoFind)
       .and.notify(callback);
   });
 
   this.Then(/^I should not see value "([^"]*)" in the "([^"]*)" field$/, function (texttoFind, fieldRef, callback) {
-    expect(shippingPackage[fieldRef.replace(/\s+/g, '')].getText())
+    expect(getVariable[fieldRef.replace(/\s+/g, '')].getText())
       .to.eventually.not.contain(texttoFind)
       .and.notify(callback);
   });
 
   this.Given(/^"([^"]*)" field should be disabled$/, function (fieldId, callback) {
-    expect(shippingPackage[fieldId.replace(/\s+/g, '')].isEnabled()).to.eventually.equal(false).and.notify(callback);
+    expect(getVariable[fieldId.replace(/\s+/g, '')].isEnabled()).to.eventually.equal(false).and.notify(callback);
   });
 
   this.Given(/^I click the "([^"]*)" checkbox$/, function (linkName, callback) {
-    var checkboxName = shippingPackage[linkName.replace(/\s+/g, '')];
-    shippingPackage[linkName.replace(/\s+/g, '')].click();
+    var checkboxName = getVariable[linkName.replace(/\s+/g, '')];
+    getVariable[linkName.replace(/\s+/g, '')].click();
     expect(checkboxName.isPresent()).to.eventually.be.true.and.notify(callback);
   });
 
