@@ -12,7 +12,7 @@ module.exports = function () {
     return browser.get(settings.url('public/logout'));
   });
 
-  this.Given(/^I am on the "page name" page$/, function (pagename, callback) {
+  this.Given(/^I am on the "([^"]*)" page$/, function (pagename, callback) {
     var elName = 'h1';
     browser.get(settings.url(settings.pages.public.createShipping[pagename]));
     checkpageforcsselement(elName, callback);
@@ -95,24 +95,9 @@ module.exports = function () {
   });
 
   this.When(/^I complete all form fields on form one$/, function (callback) {
-    var data = [{field: 'company Sender', content: 'Sender company 1'},
-      {field: 'contact Name Sender', content: 'Companyone Contact'},
-      {field: 'sender Email Address', content: '485Sender@test.com'},
-      {field: 'sender Telephone Number', content: '208000000'},
-      {field: 'sender Vat Number', content: '123456789B01'},
-      {field: 'sender Instructions', content: 'Deliver round back'},
-      {field: 'sender Street Address', content: '1, A Road'},
-      {field: 'sender City', content: 'Rotterdam'},
-      {field: 'postal Code Sender', content: '3000AA'},
-      {field: 'company Receiver', content: 'Receiver company 1'},
-      {field: 'contact Name Receiver', content: 'Companytwo Contact'},
-      {field: 'receiver Email Address', content: '485Receiver@test.com'},
-      {field: 'receiver Telephone Number', content: '3432423423'},
-      {field: 'receiver Vat Number', content: '123456789B01'},
-      {field: 'receiver Instructions', content: 'Collect round back'},
-      {field: 'receiver Street Address', content: 'Singel 250'},
-      {field: 'receiver City', content: 'Amsterdam'},
-      {field: 'postal Code Receiver', content: '1000AA'}];
+    var data = [{field: 'field one', content: 'field value'},
+      {field: 'field two', content: 'field value'},
+      {field: 'field three', content: 'field value'}];
     for (var i = 0; i < data.length; i++) {
       var inputData = data[i].field;
       var fieldEl = getVariable[inputData.replace(/\s+/g, '')];
