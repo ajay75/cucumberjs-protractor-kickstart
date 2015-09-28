@@ -27,13 +27,4 @@ exports.config = {
   },
   maxSessions: 1,
 
-  onPrepare: function() {
-
-    var disableNgAnimate = function() {
-      angular.module('disableNgAnimate', []).run(function($animate) {
-        angular.element('#__bs_notify__').remove();
-        $animate.enabled(false);
-      });
-    }; browser.addMockModule('disableNgAnimate', disableNgAnimate);
-  }
 };

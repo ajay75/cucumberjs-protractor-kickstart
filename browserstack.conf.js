@@ -63,15 +63,4 @@ exports.config = {
         tags: '@steps'
     },
     singleRun: true,
-
-    onPrepare: function () {
-
-        var disableNgAnimate = function () {
-            angular.module('disableNgAnimate', []).run(function ($animate) {
-                angular.element('#__bs_notify__').remove();
-                $animate.enabled(false);
-            });
-        };
-        browser.addMockModule('disableNgAnimate', disableNgAnimate);
-    }
 };
