@@ -8,14 +8,11 @@ var expect = chai.expect;
 var SelectWrapper  = require('../support/select-wrapper');
 
 module.exports = function () {
-  this.Then(/^I am on the logout page$/, function () {
-    return browser.get(settings.url('public/logout'));
-  });
-
+  
   this.Given(/^I am on the "([^"]*)" page$/, function (pagename, callback) {
-    var elName = 'h1';
-    browser.get(settings.url(settings.pages.public.createShipping[pagename]));
-    checkpageforcsselement(elName, callback);
+    //var elName = 'h1';
+    browser.get(settings.url(settings.pages.private[pagename])).then(callback);
+    //checkpageforcsselement(elName, callback);
   });
 
   this.Given(/^I click the "([^"]*)" button$/, function (fieldname, callback) {
