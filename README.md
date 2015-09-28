@@ -7,11 +7,7 @@
 
 ## How do I run tests?
 
-* Run `gulp jenkins` for regression tests
-
-## How do I run API tests?
-
-* Run 'node_modules/cucumber/bin/cucumber.js --require e2e/steps/api.js e2e/features/api/'
+* Run `gulp jenkins` to run tests
 
 ## Browserstack
 
