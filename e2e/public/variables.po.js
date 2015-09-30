@@ -6,7 +6,7 @@ var settings = require('../e2e-settings');
 
 module.exports = {
   addtrip: element(by.css('.btn-success')),
-  newtripname: element(by.model('newProductName')),
-  commissionpercentage: element(by.model('newProductPerc')),
+  tripname: element(by.model('newProductName')),
+  trippercentage: element(by.model('newProductPerc')),
   panelheading: element(by.css('.panel-heading'))
 }

@@ -2,7 +2,7 @@
 
 // An example configuration file.
 exports.config = {
-    rootElement: '#MyTNT',
+    rootElement: '#myApp',
     // Capabilities to be passed to the webdriver instance.
     multiCapabilities: [{
         'browserstack.user': '[browserstack USERNAME]',

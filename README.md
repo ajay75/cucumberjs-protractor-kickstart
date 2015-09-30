@@ -11,10 +11,7 @@
 
 ## Browserstack
 
-* Download BrowserStackLocal (https://www.browserstack.com/browserstack-local/BrowserStackLocal-darwin-x64.zip)
-* ./BrowserStackLocal [browserstack key]
-* Run `gulp e2e:bs` for regression tests
-
+* Run `gulp e2e:bs` for regression tests on the browserstack service
 
 ## Step definitions
 

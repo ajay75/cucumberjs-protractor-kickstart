@@ -2,7 +2,7 @@
 
 exports.config = {
 
-  rootElement: '#MyTNT',
+  rootElement: '#myApp',
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.
