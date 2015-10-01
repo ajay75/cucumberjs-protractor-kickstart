@@ -13,17 +13,17 @@ var checkpageforelement = function (id_findelement, callback) {
 };
 
 var container = {
-    myFn: function(type, regExp, fn) {
-        console.log(type +' '+regExp.toString());
+    myFn: function (type, regExp, fn) {
+        console.log(type + ' ' + regExp.toString());
     },
 
-    Given: function(regExp, fn) {
+    Given: function (regExp, fn) {
         this.myFn('Given', regExp, fn);
     },
-    Then : function(regExp, fn) {
+    Then: function (regExp, fn) {
         this.myFn('Then', regExp, fn);
     },
-    When : function(regExp, fn) {
+    When: function (regExp, fn) {
         this.myFn('When', regExp, fn);
     }
 };
@@ -41,7 +41,7 @@ module.exports = function () {
         expect(browser.getCurrentUrl()).to.eventually.not.equal(browser.get(settings.url('public/sign-in'))).and.notify(callback);
     });
 
-    this.Given(/^I run Cucumber with Protractor$/, function(next) {
+    this.Given(/^I run Cucumber with Protractor$/, function (next) {
         next();
     });
 };
