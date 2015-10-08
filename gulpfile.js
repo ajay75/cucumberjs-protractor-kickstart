@@ -4,10 +4,9 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var wrench = require('wrench');
 var reporter = require('gulp-protractor-cucumber-html-report');
+var cucumber = require('gulp-cucumber');
 
 var options = {
-  src: 'src',
-  dist: 'dist',
   tmp: '.tmp',
   e2e: '../e2e',
   e2e_report_dir: 'e2e/reports/',
@@ -40,3 +39,11 @@ gulp.src('./reports/json/cucumber-test-results.json')
     .pipe(reporter({
       dest: options.e2e + '/reports/html'
     }));
+
+gulp.task('test', function() {
+  return gulp.src('e2e/features/*.feature')
+      .pipe(cucumber({
+        'steps': ['node_modules/apickli/apickli-gherkin.js', 'e2e/step-definitions/*.js'],
+        'format': 'pretty'
+      }));
+});

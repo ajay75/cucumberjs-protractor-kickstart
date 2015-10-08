@@ -16,6 +16,7 @@
     "fs-extra": "^0.22.1",
     "gulp": "~3.8.11",
     "gulp-browserstack": "latest",
+    "gulp-cucumber": "latest",
     "gulp-protractor": "~1.0.0",
     "gulp-protractor-cucumber-html-report": "0.0.8",
     "gulp-util": "~3.0.2",

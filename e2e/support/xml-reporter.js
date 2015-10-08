@@ -48,7 +48,7 @@ var reporterHooks = function () {
         callback();
     });
 
-    // save steps output
+    // save step-definitions output
     /* jshint ignore:start */
     this.registerHandler('StepResult', function (event, callback) {
         var stepResult = event.getPayloadItem('stepResult');

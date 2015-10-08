@@ -7,6 +7,7 @@
 
 ## How do I run tests?
 
+* npm install
 * Run `gulp jenkins` to run tests
 
 ## Browserstack

@@ -3,12 +3,11 @@
 var settings = require('../e2e-settings');
 var chai = require('chai');
 chai.use(require('chai-as-promised'));
-var getVariable = require('../public/variables.po.js');
+var getVariable = require('./variables.po.js');
 var expect = chai.expect;
 var SelectWrapper = require('../support/select-wrapper');
 
 module.exports = function () {
-
     this.Given(/^I am on the "([^"]*)" page$/, function (pagename, callback) {
         //var elName = 'h1';
         browser.get(settings.url(settings.pages.private[pagename])).then(callback);

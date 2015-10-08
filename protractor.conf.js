@@ -19,11 +19,11 @@ exports.config = {
   framework: 'cucumber',
   cucumberOpts: {
     require: [
-      'e2e/steps/*.js',
+      'e2e/step-definitions/*.js',
       'e2e/support/*.js'
     ],
     format: 'pretty',
-    tags: '@steps'
+    tags: '@step-definitions'
   },
   maxSessions: 1,
 };

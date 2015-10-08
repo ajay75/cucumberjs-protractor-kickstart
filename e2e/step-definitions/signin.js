@@ -1,7 +1,7 @@
 'use strict';
 
 var settings = require('../e2e-settings');
-var signIn = require('../public/variables.po.js');
+var signIn = require('./variables.po.js');
 var chai = require('chai');
 chai.use(require('chai-as-promised'));
 var expect = chai.expect;
