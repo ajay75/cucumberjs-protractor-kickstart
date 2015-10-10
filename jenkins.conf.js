@@ -22,7 +22,7 @@ exports.config = {
       'e2e/step-definitions/*.js',
       'e2e/support/*.js'
     ],
-    format: 'pretty',
+    format: 'json',
     tags: '@steps'
   },
   maxSessions: 1,
