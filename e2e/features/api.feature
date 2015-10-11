@@ -1,5 +1,6 @@
 Feature: Httpbin.org exposes various resources for HTTP request testing
 
+  @api
   Scenario: Setting headers in GET request
     Given I set User-Agent header to apickli
     When I GET /get
@@ -21,7 +22,7 @@ Feature: Httpbin.org exposes various resources for HTTP request testing
     Then response body should contain hello-world
 
   Scenario: Setting body payload from file
-    Given I pipe contents of file ./test/features/fixtures/requestbody.xml to body
+    Given I pipe contents of file ./e2e/step-definitions/fixtures/requestbody.xml to body
     When I POST to /post
     Then response body should contain "data": "<a>b</a>"
 

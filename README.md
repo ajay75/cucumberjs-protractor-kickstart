@@ -8,7 +8,8 @@
 ## How do I run tests?
 
 * npm install
-* Run `gulp jenkins` to run tests
+* Run `gulp jenkins` to run UI tests
+* Run `gulp api` to run API tests
 
 ## Browserstack
 

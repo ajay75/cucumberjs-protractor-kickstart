@@ -5,7 +5,7 @@ var chai = require('chai');
 
 module.exports = function () {
     this.AfterScenario(function (event, callback) {
-        setTimeout(callback, 5000);
+        setTimeout(callback, 10000);
     });
     this.After(function (scenario, callback) {
         if (scenario.isFailed()) {
