@@ -1,17 +1,32 @@
 # README
 
-# CREDITS
+## PREP MAC/LINUX
 
-* apickli (for api testing): https://github.com/apickli/apickli
-* gulp protractor cucumber html report: https://github.com/mrooding/gulp-protractor-cucumber-html-report
+* Install NodeJS
+* npm install -g webdriver-manager
+* webdriver-manager update
+* webdriver-manager start
+	
+## PREP WINDOWS
 
+* Install NodeJS
+* Intsall GitSCM
+* Install Visual Studio Express
+* (probably good point for reboot)
+* From gitbash prompt:
+	* npm install -g node gyp
+	* npm install -g webdriver-manager
+	* webdriver-manager update
+	* webdriver-manager start
+	
 ## How do I run tests?
 
-* npm install
+### from repo root folder run:
+* npm install (just once)
 * Run `gulp jenkins` to run UI tests
 * Run `gulp api` to run API tests
 
-## Browserstack
+### Browserstack
 
 * Run `gulp e2e:bs` for regression tests on the browserstack service
 
