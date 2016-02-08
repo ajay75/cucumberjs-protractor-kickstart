@@ -4,9 +4,11 @@
 
 * Install NodeJS
 * npm install -g webdriver-manager
+* npm install -g phantomjs
+* npm install -g gulp
 * webdriver-manager update
 * webdriver-manager start
-	
+
 ## PREP WINDOWS
 
 * Install NodeJS
@@ -16,15 +18,22 @@
 * From gitbash prompt:
 	* npm install -g node gyp
 	* npm install -g webdriver-manager
+	* npm install -g gulp
 	* webdriver-manager update
 	* webdriver-manager start
-	
+##To run headless phantomjs
+    * Download window phantomjs binary
+    * Extract somewhere and rename phantomjs.exe to phantomjs
+    * Copy to \\Users\[user id]\AppData\Roaming\npm
+    * Change browserName: 'phantomjs' in conf.js file
+
 ## How do I run tests?
 
 ### from repo root folder run:
 * npm install (just once)
 * Run `gulp jenkins` to run UI tests
 * Run `gulp api` to run API tests
+* To run tests headless, change browserName: 'phantomjs' in conf.js file
 
 ### Browserstack
 
