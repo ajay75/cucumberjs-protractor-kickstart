@@ -31,21 +31,6 @@ exports.config = {
             'os': 'OS X',
             'os_version': 'Mavericks',
             'resolution': '1024x768'
-        },
-        {
-            'browserstack.user': '[browserstack USERNAME]',
-            'browserstack.key': '[browserstack KEY]',
-
-            // Needed for testing localhost
-            'browserstack.local': 'true',
-            'browserstack.debug': true,
-
-            // Settings for the browser you want to test
-            'browserName': 'Firefox',
-            'browser_version': '36.0',
-            'os': 'OS X',
-            'os_version': 'Mavericks',
-            'resolution': '1024x768'
         }
     ],
 
