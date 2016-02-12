@@ -18,7 +18,7 @@ before_script:
   - sleep 5
 
 script:
- - gulp jenkins
+ - gulp api
 
 matrix:
   allow_failures:
