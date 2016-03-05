@@ -88,7 +88,7 @@ module.exports = function (options) {
     gulp.task('protractor', ['clean-protractor-report'], runProtractor);
     gulp.task('protractor2', ['clean-protractor-report'], runUIProtractor);
     gulp.task('api', ['protractor'], generateProtractorHtmlReport);
-    gulp.task('jenkins', ['protractor2'], generateProtractorHtmlReport);
+    gulp.task('ui', ['protractor2'], generateProtractorHtmlReport);
     gulp.task('e2e:bs', ['protractor:bs'], exitProcess);
     gulp.task('protractor:bs', [], runBsProtractor);
 };

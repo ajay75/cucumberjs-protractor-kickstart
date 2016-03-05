@@ -31,7 +31,7 @@
 
 ### from repo root folder run:
 * npm install (just once)
-* Run `gulp jenkins` to run UI tests
+* Run `gulp ui` to run UI tests
 * Run `gulp api` to run API tests
 * To run tests headless, change browserName: 'phantomjs' in conf.js file
 
