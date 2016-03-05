@@ -17,7 +17,6 @@ module.exports = function (options) {
             }));
     }
 
-
     function cleanProtractorReports(done) {
         if (fs.existsSync(options.e2e_report_dir)) {
             del(options.e2e_report_dir + '**/*', done);
@@ -56,11 +55,11 @@ module.exports = function (options) {
             .pipe(browserStack.stopTunnel());
     }
 
-    function runJenkinsProtractor(cb) {
+    function runUIProtractor(cb) {
         return gulp
             .src(options.e2e + '/features/*.feature')
             .pipe(protractor.protractor({
-                configFile: 'jenkins.conf.js'
+                configFile: 'ui.conf.js'
             }))
             .on('error', function (err) {
                 //Make sure failed tests cause gulp to exit non-zero
@@ -87,7 +86,7 @@ module.exports = function (options) {
 
     //run e2e tasks
     gulp.task('protractor', ['clean-protractor-report'], runProtractor);
-    gulp.task('protractor2', ['clean-protractor-report'], runJenkinsProtractor);
+    gulp.task('protractor2', ['clean-protractor-report'], runUIProtractor);
     gulp.task('api', ['protractor'], generateProtractorHtmlReport);
     gulp.task('jenkins', ['protractor2'], generateProtractorHtmlReport);
     gulp.task('e2e:bs', ['protractor:bs'], exitProcess);
