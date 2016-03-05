@@ -26,7 +26,7 @@ module.exports = function (options) {
         }
     }
 
-    function runProtractor(cb) {
+    function runProtractor() {
         gulp.src('e2e/features/api.feature')
             .pipe(cucumber({
                 'steps': ['e2e/step-definitions/api/*.js', 'node_modules/apickli/apickli-gherkin.js'],
@@ -34,11 +34,9 @@ module.exports = function (options) {
             }))
             .on('error', function (err) {
                 //Make sure failed tests cause gulp to exit non-zero
-                console.log(err);
-                cb();
+                throw err;
             })
             .on('end', function () {
-                cb();
             });
     }
 

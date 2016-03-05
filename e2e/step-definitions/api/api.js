@@ -5,9 +5,8 @@ var apickli = require('apickli');
 
 module.exports = function() {
     // cleanup before every scenario
-    this.Before(function(callback) {
+    this.Before(function() {
         this.apickli = new apickli.Apickli('http', 'httpbin.org');
-        callback();
     });
 
     var subtractionResult;
