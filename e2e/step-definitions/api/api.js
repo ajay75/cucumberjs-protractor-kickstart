@@ -3,18 +3,12 @@
 
 var apickli = require('apickli');
 var createdEmail;
-require ('../../../node_modules/apickli/apickli-gherkin.js');
 
 module.exports = function () {
     // cleanup before every scenario
     this.Before(function () {
-        this.apickli = new apickli.Apickli('https', 'api.intlivingsocial.co.uk');
-        //callback();
+        this.apickli = new apickli.Apickli('http', 'httpbin.org');
     });
-
-    //this.After(function () {
-    //   console.log(this.apickli.httpResponse.body);
-    //});
 
     this.Then(/^I create random registration details$/, function (callback) {
         var emailPrefix = Math.random().toString(36).slice(2);
