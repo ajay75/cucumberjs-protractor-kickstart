@@ -7,7 +7,6 @@ var getVariable = require('./elementmap.po.js');
 var expect = chai.expect;
 var SelectWrapper = require('../support/select-wrapper');
 var currentgeneratedEmail;
-var singledealprice;
 
 module.exports = function () {
     this.Given(/^I am on the "([^"]*)" page$/, function (pagename, callback) {
@@ -66,9 +65,7 @@ module.exports = function () {
     });
 
     this.Given(/^I wait for search results$/, function () {
-        var EC = protractor.ExpectedConditions;
-        var el = element(by.css('.search-results'));
-        return browser.wait(EC.visibilityOf(el));
+        waitForElementToBePresent('css', '.search-results')
     });
 
     this.Given(/^I wait for subscription modal to load$/, function () {
@@ -187,9 +184,10 @@ function sendKeys(element, content) {
     }
 }
 
-function waitForCssElementToBePresent(elementToWaitFor) {
+function waitForElementToBePresent(elementType, elementToWaitFor) {
     var EC = protractor.ExpectedConditions;
-    var el = element(by.css(elementToWaitFor));
+    var elType = 'by.' + elementType;
+    var el = element(elType(elementToWaitFor));
     return browser.wait(EC.visibilityOf(el));
 }
 
