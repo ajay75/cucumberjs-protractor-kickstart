@@ -79,7 +79,7 @@ module.exports = function () {
             var buttonName = 'fb login';
             browser.switchTo().window(handles[1]);
             browser.ignoreSynchronization = true;
-            fillField('facebook id', 'paul.littlebury@wowcher.co.uk');
+            fillField('facebook id', 'paul.littlebury@test.co.uk');
             fillField('facebook password', 'Sunshine99!@');
             return getVariable[buttonName.replace(/\s+/g, '')].click().then(function () {
                 browser.switchTo().window(handles[0]);
@@ -154,7 +154,7 @@ module.exports = function () {
 
 function enterRandomEmail(fieldName) {
     var emailPrefix = Math.random().toString(36).slice(2);
-    var fieldValue2 = emailPrefix + "@wowcher.co.uk";
+    var fieldValue2 = emailPrefix + "@test.co.uk";
     console.log(fieldValue2);
     fillField(fieldName, fieldValue2);
     currentgeneratedEmail = fieldValue2;

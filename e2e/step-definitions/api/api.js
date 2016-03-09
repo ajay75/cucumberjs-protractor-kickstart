@@ -12,7 +12,7 @@ module.exports = function () {
 
     this.Then(/^I create random registration details$/, function (callback) {
         var emailPrefix = Math.random().toString(36).slice(2);
-        var randomemail = emailPrefix + "@wowcher.co.uk";
+        var randomemail = emailPrefix + "@test.co.uk";
         this.apickli.setGlobalVariable(randomemail);
         createdEmail = randomemail;
         this.apickli.setRequestBody('{"requestRegistration": {"title": "Mr","firstName": "AbcFn2","surname": "DefLn2", "addressLine1": "12 Swan Lane","addressLine2": "Islington","city": "London","postCode": "N1 1SD","email":"' + randomemail + '","emailConfirmation": "' + randomemail + '","password": "Sunshine99!@","passwordConfirmation": "Sunshine99!@","rejectDMGTContact": "false","location": "London","subscriptionSource": "abc"}}')
