@@ -3,110 +3,35 @@
 var settings = require('../e2e-settings');
 var chai = require('chai');
 chai.use(require('chai-as-promised'));
-var getVariable = require('./variables.po.js');
+var getVariable = require('./elementmap.po.js');
 var expect = chai.expect;
 var SelectWrapper = require('../support/select-wrapper');
+var currentgeneratedEmail;
+var singledealprice;
 
 module.exports = function () {
     this.Given(/^I am on the "([^"]*)" page$/, function (pagename, callback) {
-        //var elName = 'h1';
-        browser.get(settings.url(settings.pages.private[pagename])).then(callback);
-        //checkpageforcsselement(elName, callback);
+        browser.get(settings.url(settings.pages.public[pagename])).then(callback);
+    });
+
+    this.Given(/^I am on "([^"]*)"$/, function (destUrl, callback) {
+        var currentUrl = settings.baseUrl + destUrl;
+        browser.get(settings.baseUrl + destUrl).then(function (url) {
+            expect(browser.getCurrentUrl()).to.eventually.equal(currentUrl).and.notify(callback);
+        });
     });
 
     this.Given(/^I click the "([^"]*)" button$/, function (fieldname, callback) {
         getVariable[fieldname.replace(/\s+/g, '')].click().then(callback);
     });
 
-    this.Given(/^I fill in "([^"]*)" with "([^"]*)"$/, function (fieldName, fieldValue, callback) {
-        getVariable[fieldName.replace(/\s+/g, '')].clear();
-        sendKeys(getVariable[fieldName.replace(/\s+/g, '')], fieldValue);
-        expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
+    this.Given(/^I click "([^"]*)"$/, function (fieldname, callback) {
+        expect(getVariable[fieldname.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).then(function () {
+            getVariable[fieldname.replace(/\s+/g, '')].click().then(callback);
+        });
     });
-
-    this.Given(/^I select "([^"]*)" from "([^"]*)" dropdown$/, function (fieldValue, fieldName, callback) {
-        var dropdownField = getVariable[fieldName.replace(/\s+/g, '')];
-        sendKeys(dropdownField, fieldValue);
-        dropdownField.sendKeys(protractor.Key.TAB);
-        expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
-    });
-
-    this.Given(/^I select tomorrows date from date dropdown$/, function (callback) {
-        var tomorrow = new Date();
-        var newdate = new Date();
-        var month = (newdate.getMonth() + 1);
-        newdate.setDate(tomorrow.getDate() + 1);
-        var converteddate = toString('MMMM dS');
-        var mySelect = new SelectWrapper(by.id('date'));
-        mySelect.selectByValue(converteddate);
-        expect(element(by.id('date')).isPresent()).to.eventually.be.true.and.notify(callback);
-    });
-
-
-    this.Then(/^I should see "([^"]*)" in the "([^"]*)" area$/, function (txt, area, callback) {
-        expect(getVariable[area.replace(/\s+/g, '')].getText()).to.eventually.contain(txt).and.notify(callback);
-    });
-
-
-    this.Then(/^I should not see "([^"]*)" in the "([^"]*)" area$/, function (txt, area, callback) {
-        expect(getVariable[area.replace(/\s+/g, '')].getText()).to.eventually.not.contain(txt).and.notify(callback);
-    });
-
-    this.Then(/^"([^"]*)" fields are displayed with error message$/, function (numOfErrors, callback) {
-        expect(element.all(by.css('.ng-invalid-required')).count()).to.eventually.equal(parseInt(numOfErrors)).and.notify(callback);
-
-    });
-
-    this.Then(/^I get count of all DOM elements$/, function () {
-        var allDomElements = element.all(by.css('*')).count();
-        console.log(allDomElements)
-    });
-
-    this.When(/^I fill the form with the following data$/, function (table, callback) {
-        var inputData;
-        var fieldEl;
-        var data = table.hashes();
-        for (var i = 0; i < data.length; i++) {
-            inputData = data[i].field;
-            fieldEl = getVariable[inputData.replace(/\s+/g, '')];
-            fieldEl.clear();
-            var p = fieldEl.sendKeys(data[i].content);
-            if (i === data.length - 1) {
-                p.then(callback);
-            }
-        }
-    });
-
-    this.When(/^I should see form data$/, function (table, callback) {
-        var data = table.hashes();
-        for (var i = 0; i < data.length; i++) {
-            var inputData = data[i].field;
-            var inputContent = data[i].content;
-            var p = expect(element(by.css('div.layout.box--push')).getText()).to.eventually.contain(inputContent);
-            if (i === data.length - 1) {
-                p.and.notify(callback);
-            }
-
-        }
-    });
-
-    this.When(/^I complete all form fields on form one$/, function (callback) {
-        var data = [{field: 'field one', content: 'field value'},
-            {field: 'field two', content: 'field value'},
-            {field: 'field three', content: 'field value'}];
-        for (var i = 0; i < data.length; i++) {
-            var inputData = data[i].field;
-            var fieldEl = getVariable[inputData.replace(/\s+/g, '')];
-            var p = fieldEl.sendKeys(data[i].content);
-            if (i === data.length - 1) {
-                p.then(callback);
-            }
-        }
-    });
-
 
     this.Then(/^I should see the "([^"]*)" field$/, function (elementName, callback) {
-        //var elementNameParsed = getVariable[elementName.replace(/\s+/g, '')];
         expect(getVariable[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).and.notify(callback);
     });
 
@@ -114,56 +39,144 @@ module.exports = function () {
         expect(getVariable[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(false).and.notify(callback);
     });
 
-    this.Then(/^I should see value "([^"]*)" in the "([^"]*)" field$/, function (texttoFind, fieldRef, callback) {
-        expect(getVariable[fieldRef.replace(/\s+/g, '')].getText())
-            .to.eventually.contain(texttoFind)
-            .and.notify(callback);
+    this.Then(/^I should see total price multiplied by "([^"]*)"$/, function (arg1) {
+        var newtotal = '£' + (singledealprice * arg1);
+        var fieldName = 'total price';
+        var totalPrice = getVariable[fieldName.replace(/\s+/g, '')];
+        chai.assert(totalPrice, newtotal);
     });
 
-    this.Then(/^I should not see value "([^"]*)" in the "([^"]*)" field$/, function (texttoFind, fieldRef, callback) {
-        expect(getVariable[fieldRef.replace(/\s+/g, '')].getText())
-            .to.eventually.not.contain(texttoFind)
-            .and.notify(callback);
+    this.Given(/^I click first deal in search results$/, function () {
+        return element(by.css('.deal-sm')).click();
     });
 
-    this.Given(/^"([^"]*)" field should be disabled$/, function (fieldId, callback) {
-        expect(getVariable[fieldId.replace(/\s+/g, '')].isEnabled()).to.eventually.equal(false).and.notify(callback);
+    this.Given(/^I wait for payment gateway$/, function () {
+        var EC = protractor.ExpectedConditions;
+        var el = element(by.css('[aria-disabled="false"]'));
+        return browser.wait(EC.visibilityOf(el));
     });
 
-    this.Given(/^I click the "([^"]*)" checkbox$/, function (linkName, callback) {
-        var checkboxName = getVariable[linkName.replace(/\s+/g, '')];
-        getVariable[linkName.replace(/\s+/g, '')].click();
-        expect(checkboxName.isPresent()).to.eventually.be.true.and.notify(callback);
+    this.When(/^I switch to iframe "([^"]*)"$/, function (arg1, callback) {
+        browser.ignoreSynchronization = true;
+        browser.switchTo().frame(browser.driver.findElement(By.name(arg1))).then(callback);
     });
 
-    this.Given(/^the correct first available time displayed$/, function (callback) {
-        var minutes;
-        var currentdate = new Date();
-        var hour = currentdate.getHours();
-        var minutes2 = currentdate.getMinutes();
-        if ((minutes2 >= 30 || minutes2 < 30) && (hour > 16 || hour < 7)) {
-            if (hour > 16 || hour < 7) {
-                hour = "08";
-                minutes = "30";
-            }
-            else {
-                hour = hour + 1;
-                minutes = "30";
-            }
+    this.When(/^I switch away from iframe "([^"]*)"$/, function (arg1) {
+        browser.driver.switchTo().defaultContent();
+    });
+
+    this.Given(/^I wait for search results$/, function () {
+        var EC = protractor.ExpectedConditions;
+        var el = element(by.css('.search-results'));
+        return browser.wait(EC.visibilityOf(el));
+    });
+
+    this.Given(/^I wait for subscription modal to load$/, function () {
+        var EC = protractor.ExpectedConditions;
+        var el = element(by.model('modal.formValues.email'));
+        return browser.wait(EC.not(EC.presenceOf(el)));
+    });
+
+    this.Given(/^I login with with non-angular facebook popup$/, function () {
+        browser.getAllWindowHandles().then(function (handles) {
+            var buttonName = 'fb login';
+            browser.switchTo().window(handles[1]);
+            browser.ignoreSynchronization = true;
+            fillField('facebook id', 'paul.littlebury@wowcher.co.uk');
+            fillField('facebook password', 'Sunshine99!@');
+            return getVariable[buttonName.replace(/\s+/g, '')].click().then(function () {
+                browser.switchTo().window(handles[0]);
+                browser.ignoreSynchronization = false;
+            });
+        });
+        var fieldName = 'login success';
+        return expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true);
+    });
+
+    this.Given(/^I fill in "([^"]*)" with "([^"]*)"$/, function (fieldName, fieldValue, callback) {
+        if (fieldValue == 'randomemail') {
+            enterRandomEmail(fieldName);
+            expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).and.notify(callback);
         }
-        var firstCollectionTime = (hour + ":" + minutes);
-        console.log(firstCollectionTime);
-        var area = element(by.id('from'));
-        expect(area.getText()).to.eventually.contain(firstCollectionTime).and.notify(callback);
+        else {
+            fillField(fieldName, fieldValue);
+            expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).and.notify(callback);
+        }
+    });
+
+    this.Given(/^I fill in dropdown "([^"]*)" with "([^"]*)"$/, function (fieldName, fieldValue) {
+        var fieldEl = getVariable[fieldName.replace(/\s+/g, '')];
+        fieldEl.sendKeys(fieldValue);
+    });
+
+
+    this.Given(/^I fill in "([^"]*)" with the newly created email id$/, function (fieldName, callback) {
+        fillField(fieldName, currentgeneratedEmail);
+        callback();
+    });
+
+    this.Given(/^I select "([^"]*)" from "([^"]*)" dropdown$/, function (fieldValue, fieldName, callback) {
+        var dropdownField = getVariable[fieldName.replace(/\s+/g, '')];
+        dropdownField.click();
+        element.all(by.css('.ui-select-choices-row-inner')).first().click().then(callback);
+    });
+
+    this.Given(/^I select "([^"]*)" from "([^"]*)"$/, function (fieldValue, fieldName, callback) {
+        var dropdownField = getVariable[fieldName.replace(/\s+/g, '')];
+        sendKeys(dropdownField, fieldValue);
+        dropdownField.sendKeys(protractor.Key.TAB).then(callback);
+    });
+
+    this.Given(/^I select "([^"]*)" from dropdown "([^"]*)"$/, function (ddValue, ddName, callback) {
+        var ddCss = getVariable[ddName.replace(/\s+/g, '')];
+        var mySelect = new SelectWrapper(by.css(ddCss));
+        sendKeys(mySelect, ddValue);
+        mySelect.selectByLabel(ddValue).then(callback);
+    });
+
+    this.Then(/^I should see "([^"]*)" in the "([^"]*)" area$/, function (txt, area, callback) {
+        var theArea = getVariable[area.replace(/\s+/g, '')].getText();
+        expect(theArea.getText()).to.eventually.contain(txt).then(function () {
+            callback();
+        });
+    });
+
+    this.Then(/^I should not see "([^"]*)" in the "([^"]*)" area$/, function (txt, area, callback) {
+        expect(getVariable[area.replace(/\s+/g, '')].getText()).to.eventually.not.contain(txt).and.notify(callback);
+    });
+    this.Then(/^I should not see the "([^"]*)" field$/, function (arg1, callback) {
+        expect(getVariable[area.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
+    });
+
+    this.Then(/^I should see the "([^"]*)" field$/, function (area, callback) {
+        expect(getVariable[area.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
     });
 
 };
 
-var checkpageforcsselement = function (id_findelement, callback) {
-    expect(element(by.css(id_findelement)).isPresent())
-        .to.eventually.equal(true)
-        .and.notify(callback);
-};
+
+function enterRandomEmail(fieldName) {
+    var emailPrefix = Math.random().toString(36).slice(2);
+    var fieldValue2 = emailPrefix + "@wowcher.co.uk";
+    console.log(fieldValue2);
+    fillField(fieldName, fieldValue2);
+    currentgeneratedEmail = fieldValue2;
+}
+
+function fillField(fieldName, fieldValue) {
+    var fieldEl = getVariable[fieldName.replace(/\s+/g, '')];
+    fieldEl.clear();
+    fieldEl.sendKeys(fieldValue);
+}
+
+function clear(elem, length) {
+    length = length || 100;
+    var backspaceSeries = '';
+    for (var i = 0; i < length; i++) {
+        backspaceSeries += protractor.Key.BACK_SPACE;
+    }
+    elem.sendKeys(backspaceSeries);
+}
 
 function sendKeys(element, content) {
     try {
@@ -172,4 +185,25 @@ function sendKeys(element, content) {
         }
     } catch (e) {
     }
+}
+
+function waitForCssElementToBePresent(elementToWaitFor) {
+    var EC = protractor.ExpectedConditions;
+    var el = element(by.css(elementToWaitFor));
+    return browser.wait(EC.visibilityOf(el));
+}
+
+function waitForUrlToChangeTo(urlRegex) {
+    var currentUrl;
+    return browser.getCurrentUrl().then(function storeCurrentUrl(url) {
+            currentUrl = url;
+        }
+    ).then(function waitForUrlToChangeTo() {
+            return browser.wait(function waitForUrlToChangeTo() {
+                return browser.getCurrentUrl().then(function compareCurrentUrl(url) {
+                    return urlRegex.test(url);
+                });
+            });
+        }
+    );
 }

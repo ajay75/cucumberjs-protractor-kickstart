@@ -1,47 +1,76 @@
 'use strict';
 
 var settings = require('../e2e-settings');
-var signIn = require('./variables.po.js');
+var signIn = require('./elementmap.po.js');
 var chai = require('chai');
 chai.use(require('chai-as-promised'));
 var expect = chai.expect;
 
-var checkpageforelement = function (id_findelement, callback) {
-    expect(element(by.binding(id_findelement)).isPresent())
-        .to.eventually.equal(true)
-        .and.notify(callback);
-};
-
-var container = {
-    myFn: function (type, regExp, fn) {
-        console.log(type + ' ' + regExp.toString());
-    },
-
-    Given: function (regExp, fn) {
-        this.myFn('Given', regExp, fn);
-    },
-    Then: function (regExp, fn) {
-        this.myFn('Then', regExp, fn);
-    },
-    When: function (regExp, fn) {
-        this.myFn('When', regExp, fn);
-    }
-};
-
-var steps = require('./general.js');
-steps.apply(container);
-
-
 module.exports = function () {
-    this.Given(/^I am logged in as valid user$/, function (callback) {
-        browser.get(settings.url(settings.pages.public.signIn));
-        signIn.$email.sendKeys(settings.correctCredentials.email);
-        signIn.$password.sendKeys(settings.correctCredentials.password);
-        signIn.$submit.click();
-        expect(browser.getCurrentUrl()).to.eventually.not.equal(browser.get(settings.url('public/sign-in'))).and.notify(callback);
+    this.Given(/^I am logged in as "([^"]*)"$/, function (userid, callback) {
+        browser.get(settings.url(settings.pages.public.login));
+        signIn.userid.sendKeys(userid);
+        signIn.next.click();
+        signIn.loginpassword.sendKeys(settings.correctCredentials.password);
+        signIn.next.click().then(callback);
     });
 
-    this.Given(/^I run Cucumber with Protractor$/, function (next) {
-        next();
+    this.Given(/^I register a valid user$/, function (callback) {
+        var emailPrefix = Math.random().toString(36).slice(2);
+        var dropdownField = element.all(by.css('.ui-select-toggle')).first();
+        console.log(emailPrefix);
+        browser.get(settings.url(settings.pages.public.login));
+        fillField('userid', emailPrefix + "@test.co.uk");
+        fillField('customertitle', 'Mr');
+        fillField('customerfirstname', 'Test');
+        fillField('customerlastname', 'User');
+        signIn.next.click();
+        fillField('password', 'Sunshine99!@');
+        fillField('confirmpassword', 'Sunshine99!@');
+        signIn.next.click().then(callback);
+        expect(browser.getCurrentUrl()).to.eventually.not.equal(browser.get(settings.url('login'))).then(callback);
     });
+
+    this.When(/^I fill the form with the following data$/, function (table, callback) {
+        var inputData;
+        var fieldEl;
+        var data = table.hashes();
+        for (var i = 0; i < data.length; i++) {
+            inputData = data[i].field;
+            fieldEl = getVariable[inputData.replace(/\s+/g, '')];
+            fieldEl.clear();
+            var p = fieldEl.sendKeys(data[i].content);
+            if (i === data.length - 1) {
+                p.then(callback);
+            }
+        }
+    });
+
+    this.When(/^I should see updated form data$/, function (table, callback) {
+        var inputData;
+        var fieldEl;
+        var data = table.hashes();
+        for (var i = 0; i < data.length; i++) {
+            inputData = 'user profile';
+            fieldEl = getVariable[inputData.replace(/\s+/g, '')];
+            var p = expect(fieldEl.getText()).to.eventually.contain(data[i].content);
+            if (i === data.length - 1) {
+                p.then(callback);
+            }
+        }
+    });
+
+    function fillField(fieldName, fieldValue) {
+        var fieldEl = signIn[fieldName.replace(/\s+/g, '')];
+        fieldEl.sendKeys(fieldValue);
+    }
+
+    function sendKeys(element, content) {
+        try {
+            if (element) {
+                element.sendKeys(content);
+            }
+        } catch (e) {
+        }
+    }
 };

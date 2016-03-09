@@ -13,6 +13,9 @@ SelectWrapper.prototype.selectByValue = function (value) {
 SelectWrapper.prototype.selectByPartialText = function (text) {
     return this.webElement.all(by.cssContainingText('option', text)).click();
 };
+SelectWrapper.prototype.selectByLabel = function (text) {
+    return this.webElement.all(by.css('label', text)).click();
+};
 SelectWrapper.prototype.selectByText = function (text) {
     return this.webElement.all(by.xpath('option[.="' + text + '"]')).click();
 };

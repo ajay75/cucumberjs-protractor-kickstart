@@ -1,6 +1,6 @@
 Feature: Output all step defintions
 
-  @u
+  @steps
   Scenario: Output all step defintions
     Given I run Cucumber with Protractor
 

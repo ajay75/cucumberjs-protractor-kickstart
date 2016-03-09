@@ -2,29 +2,47 @@
 'use strict';
 
 var apickli = require('apickli');
+var createdEmail;
+require ('../../../node_modules/apickli/apickli-gherkin.js');
 
-module.exports = function() {
+module.exports = function () {
     // cleanup before every scenario
-    this.Before(function() {
-        this.apickli = new apickli.Apickli('http', 'httpbin.org');
+    this.Before(function () {
+        this.apickli = new apickli.Apickli('https', 'api.intlivingsocial.co.uk');
+        //callback();
     });
 
-    var subtractionResult;
+    //this.After(function () {
+    //   console.log(this.apickli.httpResponse.body);
+    //});
 
-    this.When(/^I subtract (.*) from (.*)$/, function(variable1, variable2, callback) {
-        var value1 = this.apickli.getGlobalVariable(variable1);
-        var value2 = this.apickli.getGlobalVariable(variable2);
-        subtractionResult = value2 - value1;
-
+    this.Then(/^I create random registration details$/, function (callback) {
+        var emailPrefix = Math.random().toString(36).slice(2);
+        var randomemail = emailPrefix + "@wowcher.co.uk";
+        this.apickli.setGlobalVariable(randomemail);
+        createdEmail = randomemail;
+        this.apickli.setRequestBody('{"requestRegistration": {"title": "Mr","firstName": "AbcFn2","surname": "DefLn2", "addressLine1": "12 Swan Lane","addressLine2": "Islington","city": "London","postCode": "N1 1SD","email":"' + randomemail + '","emailConfirmation": "' + randomemail + '","password": "Sunshine99!@","passwordConfirmation": "Sunshine99!@","rejectDMGTContact": "false","location": "London","subscriptionSource": "abc"}}')
         callback();
     });
 
-    this.Then(/^result should be (\d+)$/, function(result, callback) {
-        if (subtractionResult == result) {
-            callback();
-        } else {
-            callback.fail(subtractionResult + ' is not equal to ' + result);
-        }
+    this.Then(/^I am using newly registered customer login details$/, function (callback) {
+        this.apickli.addHttpBasicAuthorizationHeader(createdEmail, 'Sunshine99!@');
+        callback();
+    });
+
+    this.Then(/^I create and buy a voucher$/, function (callback) {
+        //var currentBalance = this.apickli.getGlobalVariable(currentWalletBalance);
+        var currentBalance = this.apickli.scenarioVariables['currentWalletBalance'];
+        console.log(currentBalance);
+        var xmlBody = '<requestOrderProcessing><order><location>Bradford</location><containsGift></containsGift><walletUsed>true</walletUsed><walletBalance>' + currentBalance + '</walletBalance><orderLines><orderLine><dealVoucherProductId>144087</dealVoucherProductId><quantity>1</quantity></orderLine></orderLines></order></requestOrderProcessing>';
+        this.apickli.setRequestBody(xmlBody);
+        this.apickli.post('/payment/create-and-buy-order', callback);
+    });
+
+    this.Then(/^I print out response$/, function (callback) {
+        console.log(this.apickli.getResponseObject().body);
+        //console.log(currentBal);
+        callback();
     });
 
 };

@@ -29,3 +29,4 @@ exports.config = {
   },
   maxSessions: 1
 };
+

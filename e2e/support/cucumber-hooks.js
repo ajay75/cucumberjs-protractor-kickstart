@@ -4,9 +4,12 @@ var settings = require('../e2e-settings');
 var chai = require('chai');
 
 module.exports = function () {
-    this.AfterScenario(function (event, callback) {
-        setTimeout(callback, 10000);
+    this.setDefaultTimeout(10 * 1000);
+
+    this.After(function (scenario) {
+        browser.manage().deleteAllCookies();
     });
+
     this.After(function (scenario, callback) {
         if (scenario.isFailed()) {
             browser.takeScreenshot().then(function (png) {
