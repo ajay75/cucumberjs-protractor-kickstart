@@ -8,6 +8,7 @@ var del = require('del');
 var browserStack = require('gulp-browserstack');
 var reporter = require('gulp-protractor-cucumber-html-report');
 var cucumber = require('gulp-cucumber');
+var shell = require('gulp-shell');
 
 module.exports = function (options) {
     function generateProtractorHtmlReport() {
@@ -36,8 +37,8 @@ module.exports = function (options) {
         gulp.src(options.e2e + '/features/api/**/*.feature')
             .pipe(cucumber({
                 'steps': ['e2e/step-definitions/api/*.js'],
-                'format': 'pretty',
-                'path': 'e2e/reports/api/json/report.json',
+                'format': 'json',
+                'path': 'e2e/reports/api/json/report_singlerun.json',
                 'tags': '@api'
     }))
             .on('error', function (err) {
@@ -77,7 +78,7 @@ module.exports = function (options) {
                 cb();
             })
             .on('end', function () {
-//                cb();
+                exitProcess();
             });
     }
 
@@ -93,7 +94,7 @@ module.exports = function (options) {
                 cb();
             })
             .on('end', function () {
-//                cb();
+//                exitProcess()
             });
     }
     function exitProcess() {
