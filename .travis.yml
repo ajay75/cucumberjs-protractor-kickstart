@@ -10,11 +10,6 @@ before_install:
 before_script:
   - npm install
   - npm install -g gulp
-  - sudo apt-get update
-  - sudo apt-get install xvfb
-  - sudo apt-get install firefox
-  - "wget http://selenium-release.storage.googleapis.com/2.47/selenium-server-standalone-2.47.1.jar"
-  - "DISPLAY=:10 xvfb-run java -jar selenium-server-standalone-2.47.1.jar > /dev/null &"
   - sleep 5
 
 script:
