@@ -18,12 +18,7 @@ before_script:
   - sleep 5
 
 script:
- - gulp jenkins
-
-matrix:
-  allow_failures:
-    - node_js: "0.8"
-    - node_js: "0.6"
+ - gulp api
 
 notifications:
   email:
