@@ -12,7 +12,7 @@ before_script:
   - sleep 3
   - sudo npm install
   - cd e2e/step-definitions/api
-  - sudo ln -s node_modules/apickli/apickli-gherkin.js apickli-gherkin.js
+  - ln -s ../../../node_modules/apickli/apickli-gherkin.js apickli-gherkin.js
 
 script:
  - gulp api
