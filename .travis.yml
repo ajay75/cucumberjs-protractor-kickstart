@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "0.12"
+  - "0.10"
 
 before_install:
   - node --version
@@ -10,11 +10,11 @@ before_install:
 before_script:
   - npm install -g gulp
   - sleep 3
+  - sudo npm install
+  - cd e2e/step-definitions/api
+  - sudo ln -s node_modules/apickli/apickli-gherkin.js apickli-gherkin.js
 
 script:
- - sudo npm install
- - cd e2e/step-definitions/api
- - sudo ln -s node_modules/apickli/apickli-gherkin.js apickli-gherkin.js
  - gulp api
 
 notifications:
