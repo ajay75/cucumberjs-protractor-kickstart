@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jaffamonkey/cucumberjs-protractor-kickstart.svg?branch=master)](https://travis-ci.org/jaffamonkey/cucumberjs-protractor-kickstart)
+
 # README
 
 ## PREP MAC/LINUX
