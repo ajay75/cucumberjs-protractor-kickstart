@@ -9,7 +9,7 @@ before_install:
 
 before_script:
   - npm install -g gulp
-  - sleep 5
+  - sleep 3
 
 script:
  - npm install
