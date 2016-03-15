@@ -10,7 +10,7 @@ before_install:
 before_script:
   - npm install -g gulp
   - sleep 3
-  - sudo npm install
+  - npm install
   - cd e2e/step-definitions/api
   - ln -s ../../../node_modules/apickli/apickli-gherkin.js apickli-gherkin.js
 
