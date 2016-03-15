@@ -13,6 +13,7 @@ before_script:
 
 script:
  - npm install
+ - ln -s e2e/step-definitions/api/apickli-gherkin.js node_modules/apickli/apickli-gherkin.js
  - gulp api
 
 notifications:
