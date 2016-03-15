@@ -7,8 +7,8 @@
   },
   "devDependencies": {
     "apickli": "latest",
-    "chai": "^3.0.0",
-    "chai-as-promised": "^5.1.0",
+    "chai": "latest",
+    "chai-as-promised": "latest",
     "chance": "latest",
     "cucumber": "latest",
     "cucumber-html": "latest",
