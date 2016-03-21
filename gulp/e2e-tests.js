@@ -13,7 +13,7 @@ module.exports = function (options) {
     function generateProtractorHtmlReport() {
         return gulp.src('e2e/reports/json/cucumber-test-results.json')
             .pipe(reporter({
-                dest: 'e2e/reports/html'
+                dest: 'e2e/reports/ui/html'
             }));
     }
 
@@ -26,7 +26,15 @@ module.exports = function (options) {
 
     function cleanProtractorReports(done) {
         if (fs.existsSync(options.e2e_report_dir)) {
-            del(options.e2e_report_dir + '**/*', done);
+            del(options.e2e_report_dir + 'ui/**/*', done);
+        } else {
+            mkdirp(options.e2e_report_dir, done);
+        }
+    }
+
+    function cleanProtractorApiReports(done) {
+        if (fs.existsSync(options.e2e_report_dir)) {
+            del(options.e2e_report_dir + 'api/**/*', done);
         } else {
             mkdirp(options.e2e_report_dir, done);
         }
@@ -109,10 +117,11 @@ module.exports = function (options) {
     //reports
     gulp.task('protractor-report', generateProtractorHtmlReport);
     gulp.task('clean-protractor-report', cleanProtractorReports);
+    gulp.task('clean-protractor-report-api', cleanProtractorApiReports);
     gulp.task('parallel-api-report', generateApiHtmlReport);
 
     //run e2e tasks
-    gulp.task('protractor', ['clean-protractor-report'], runProtractor);
+    gulp.task('protractor', ['clean-protractor-report-api'], runProtractor);
     gulp.task('protractor2', ['clean-protractor-report'], runUIProtractor);
     gulp.task('protractor3', ['clean-protractor-report'], runParallel);
     //gulp.task('protractor:bs', ['clean-protractor-report'], runBsProtractor);
