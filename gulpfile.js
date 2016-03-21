@@ -3,7 +3,6 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var wrench = require('wrench');
-var reporter = require('gulp-protractor-cucumber-html-report');
 var cucumber = require('gulp-cucumber');
 
 var options = {
@@ -30,8 +29,3 @@ wrench.readdirSyncRecursive('./gulp').filter(function (file) {
 }).map(function (file) {
     require('./gulp/' + file)(options);
 });
-
-gulp.src('./reports/json/cucumber-test-results.json')
-    .pipe(reporter({
-        dest: options.e2e + '/reports/html'
-    }));
