@@ -115,11 +115,6 @@ Feature: Httpbin.org exposes various resources for HTTP request testing
     Then I store the value of body path $.headers.X-Quota-Remaining as remaining2 in global scope
 
   @api
-  Scenario: Quota testing - assertion
-    When I subtract remaining2 from remaining1
-    Then result should be 1
-
-  @api
   Scenario: setting header value as variable
     When I GET /get
     Then I store the value of response header Server as agent in scenario scope
