@@ -5,10 +5,9 @@ var protractor = require('gulp-protractor');
 var fs = require('fs-extra');
 var mkdirp = require('mkdirp');
 var del = require('del');
-var browserStack = require('gulp-browserstack');
+//var browserStack = require('gulp-browserstack');
 var reporter = require('gulp-protractor-cucumber-html-report');
 var cucumber = require('gulp-cucumber');
-var shell = require('gulp-shell');
 
 module.exports = function (options) {
     function generateProtractorHtmlReport() {
@@ -32,39 +31,39 @@ module.exports = function (options) {
             mkdirp(options.e2e_report_dir, done);
         }
     }
-    
+
     function runProtractor(cb) {
         gulp.src(options.e2e + '/features/api/**/*.feature')
             .pipe(cucumber({
                 'steps': ['e2e/step-definitions/api/*.js'],
-                'format': 'json',
+                'format': 'pretty',
                 'path': 'e2e/reports/api/json/report_singlerun.json',
                 'tags': '@api'
-    }))
+            }))
             .on('error', function (err) {
                 //Make sure failed tests cause gulp to exit non-zero
                 console.log(err);
                 cb();
             })
             .on('end', function () {
-//                cb();
+                //cb();
             });
     }
 
-    function runBsProtractor() {
-        return gulp
-            .src(options.e2e + '/features/ui/*.feature')
-            .pipe(browserStack.startTunnel({
-                key: 'ZaFK93k2p3yCLpdfXqRV'
-            }))
-            .pipe(protractor.protractor({
-                configFile: 'browserstack.conf.js'
-            }))
-            .on('error', function (err) {
-                throw err;
-            })
-            .pipe(browserStack.stopTunnel());
-    }
+    //function runBsProtractor() {
+    //    return gulp
+    //        .src(options.e2e + '/features/ui/*.feature')
+    //        .pipe(browserStack.startTunnel({
+    //            key: 'ZaFK93k2p3yCLpdfXqRV'
+    //        }))
+    //        .pipe(protractor.protractor({
+    //            configFile: 'browserstack.conf.js'
+    //        }))
+    //        .on('error', function (err) {
+    //            throw err;
+    //        })
+    //        .pipe(browserStack.stopTunnel());
+    //}
 
     function runUIProtractor(cb) {
         return gulp
@@ -74,11 +73,11 @@ module.exports = function (options) {
             }))
             .on('error', function (err) {
                 //Make sure failed tests cause gulp to exit non-zero
-                console.log(err);
+                //console.log(err);
                 cb();
             })
             .on('end', function () {
-                exitProcess();
+                //exitProcess();
             });
     }
 
@@ -97,6 +96,7 @@ module.exports = function (options) {
 //                exitProcess()
             });
     }
+
     function exitProcess() {
 // exit process to kill the connect server
         process.exit(0);
@@ -115,11 +115,11 @@ module.exports = function (options) {
     gulp.task('protractor', ['clean-protractor-report'], runProtractor);
     gulp.task('protractor2', ['clean-protractor-report'], runUIProtractor);
     gulp.task('protractor3', ['clean-protractor-report'], runParallel);
-    gulp.task('protractor:bs', ['clean-protractor-report'], runBsProtractor);
+    //gulp.task('protractor:bs', ['clean-protractor-report'], runBsProtractor);
     gulp.task('api', ['protractor'], generateApiHtmlReport);
     gulp.task('ui', ['protractor2'], generateProtractorHtmlReport);
     gulp.task('parallel:report', ['parallel-api-report']);
     gulp.task('parallel', ['protractor3'], generateProtractorHtmlReport);
-    gulp.task('e2e:bs', ['protractor:bs'], exitProcess);
+    //gulp.task('e2e:bs', ['protractor:bs'], exitProcess);
 
 };
