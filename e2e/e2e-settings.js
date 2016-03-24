@@ -17,8 +17,6 @@ module.exports = {
         },
         public: {
             home: '',
-            londoneast: '/deals/london-east',
-            manchester: '/deals/manchester',
             registration: {
                 activation: '/public/registration/activation',
                 signUp: '/public/registration/sign-up',
