@@ -54,32 +54,3 @@
 ### Browserstack
 
 * Run `gulp e2e:bs` for regression tests on the browserstack service
-
-## API Step definitions
-
-* I set (.*) header to (.*)
-* I set body to (.*)
-* I pipe contents of file (.*) to body
-* I have basic authentication credentials (.*) and (.*)
-* I set bearer token
-* I GET $resource
-* I POST to $resource
-* I PUT $resource
-* I DELETE $resource
-* response header (.*) should exist
-* response header (.*) should not exist
-* response body should be valid (xml|json)
-* response code should be (\d+)
-* response code should not be (\d+)
-* response header (.*) should be (.*)
-* response header (.*) should not be (.*)
-* response body should contain (.*)
-* response body should not contain (.*)
-* response body path (.*) should be (.*)
-* response body path (.*) should not be (.*)
-* I store the value of body path (.*) as access token
-* I store the value of * response header (.*) as (.*) in scenario scope
-* I store the value of body path (.*) as (.*) in scenario scope
-* value of scenario variable (.*) should be (.*)
-* I store the value of * response header (.*) as (.*) in global scope
-* I store the value of body path (.*) as (.*) in global scope
