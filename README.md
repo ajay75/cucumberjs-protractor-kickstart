@@ -5,11 +5,10 @@
 ## PREP MAC/LINUX
 
 * Install NodeJS
-* npm install -g webdriver-manager
 * npm install -g phantomjs
 * npm install -g gulp
-* webdriver-manager update
-* webdriver-manager start
+* node_modules/.bin/webdriver-manager update
+* node_modules/.bin/webdriver-manager start
 
 ## PREP WINDOWS
 
@@ -19,10 +18,9 @@
 * (probably good point for reboot)
 * From gitbash prompt:
 	* npm install -g node-gyp
-	* npm install -g webdriver-manager
 	* npm install -g gulp
-	* webdriver-manager update
-	* webdriver-manager start
+* node_modules/.bin/webdriver-manager update
+* node_modules/.bin/webdriver-manager start
 ##To run headless phantomjs
     * Download window phantomjs binary
     * Extract somewhere and rename phantomjs.exe to phantomjs
