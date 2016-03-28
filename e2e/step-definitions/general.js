@@ -34,10 +34,6 @@ module.exports = function () {
         expect(getVariable[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).and.notify(callback);
     });
 
-    this.Then(/^I should not see the "([^"]*)" field$/, function (elementName, callback) {
-        expect(getVariable[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(false).and.notify(callback);
-    });
-
     this.Then(/^I should see total price multiplied by "([^"]*)"$/, function (arg1) {
         var newtotal = '£' + (singledealprice * arg1);
         var fieldName = 'total price';
@@ -141,8 +137,8 @@ module.exports = function () {
     this.Then(/^I should not see "([^"]*)" in the "([^"]*)" area$/, function (txt, area, callback) {
         expect(getVariable[area.replace(/\s+/g, '')].getText()).to.eventually.not.contain(txt).and.notify(callback);
     });
-    this.Then(/^I should not see the "([^"]*)" field$/, function (arg1, callback) {
-        expect(getVariable[area.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
+    this.Then(/^I should not see the "([^"]*)" field$/, function (area, callback) {
+        expect(getVariable[area.replace(/\s+/g, '')].isPresent()).to.eventually.be.false.and.notify(callback);
     });
 
     this.Then(/^I should see the "([^"]*)" field$/, function (area, callback) {

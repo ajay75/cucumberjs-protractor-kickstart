@@ -3,6 +3,7 @@
 var settings = require('../e2e-settings');
 var signIn = require('./elementmap.po.js');
 var chai = require('chai');
+var getVariable = require('./elementmap.po.js');
 chai.use(require('chai-as-promised'));
 var expect = chai.expect;
 

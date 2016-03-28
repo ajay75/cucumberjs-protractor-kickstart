@@ -6,5 +6,7 @@ module.exports = {
     addtrip: element(by.css('.btn-success')),
     tripname: element(by.model('newProductName')),
     trippercentage: element(by.model('newProductPerc')),
-    panelheading: element(by.css('.panel-heading'))
+    toppanelheading: element(by.css('.panel-heading')),
+    deletetrip: element(by.css('.btn-danger')),
+    newesttrip: element(by.css('.panel-heading'))
 }
