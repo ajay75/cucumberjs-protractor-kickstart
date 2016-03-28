@@ -5,7 +5,8 @@ exports.config = {
     specs: 'e2e/features/api/*.feature',
     baseUrl: '[enter url]',
 
-    framework: 'cucumber',
+    framework: 'custom',
+    frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
         require: ['e2e/step-definitions/api/*.js',
             'node_modules/apickli/apickli-gherkin.js',

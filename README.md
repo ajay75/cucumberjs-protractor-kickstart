@@ -6,7 +6,6 @@
 
 * Install NodeJS
 * npm install -g phantomjs
-* npm install -g gulp
 * node_modules/.bin/webdriver-manager update
 * node_modules/.bin/webdriver-manager start
 
@@ -18,7 +17,6 @@
 * (probably good point for reboot)
 * From gitbash prompt:
 	* npm install -g node-gyp
-	* npm install -g gulp
 * node_modules/.bin/webdriver-manager update
 * node_modules/.bin/webdriver-manager start
 ##To run headless phantomjs
@@ -40,9 +38,6 @@
         * export http_proxy='http://anl-iron-proxy:80'
         * export https_proxy='http://anl-iron-proxy:80'
 
-### Run UI tests in parallel
-
-* Run `gulp parallel`
 
 ### Run API tests in parallel
 

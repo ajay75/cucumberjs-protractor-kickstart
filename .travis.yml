@@ -8,7 +8,6 @@ before_install:
   - npm --version
 
 before_script:
-  - npm install -g gulp
   - sleep 3
   - npm install
   - cd e2e/step-definitions/api

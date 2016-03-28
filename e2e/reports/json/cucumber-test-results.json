@@ -1,0 +1,166 @@
+[
+  {
+    "id": "Output-all-step-defintions",
+    "name": "Output all step defintions",
+    "description": "",
+    "line": 1,
+    "keyword": "Feature",
+    "uri": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/features/ui/output-step-definitions.feature",
+    "elements": [
+      {
+        "name": "Output all step defintions",
+        "id": "Output-all-step-defintions;output-all-step-defintions",
+        "line": 4,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@steps",
+            "line": 3
+          }
+        ],
+        "steps": [
+          {
+            "name": "I run Cucumber with Protractor",
+            "line": 5,
+            "keyword": "Given ",
+            "result": {
+              "status": "undefined"
+            },
+            "match": {}
+          },
+          {
+            "keyword": "After ",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1731097
+            },
+            "match": {}
+          },
+          {
+            "keyword": "After ",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 588847
+            },
+            "match": {}
+          }
+        ]
+      },
+      {
+        "name": "Form test",
+        "id": "Output-all-step-defintions;form-test",
+        "line": 8,
+        "keyword": "Scenario",
+        "description": "",
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@steps",
+            "line": 7
+          }
+        ],
+        "steps": [
+          {
+            "name": "I am on the \"home\" page",
+            "line": 9,
+            "keyword": "Given ",
+            "result": {
+              "status": "failed",
+              "duration": 10001233453,
+              "error_message": "Error: Step timed out after 10000 milliseconds\n    at Timer.listOnTimeout (timers.js:92:15)"
+            },
+            "match": {}
+          },
+          {
+            "name": "I fill the form with the following data",
+            "line": 10,
+            "keyword": "And ",
+            "rows": [
+              {
+                "cells": [
+                  "field",
+                  "content"
+                ]
+              },
+              {
+                "cells": [
+                  "trip name",
+                  "test trip 1"
+                ]
+              },
+              {
+                "cells": [
+                  "trip percentage",
+                  "12.5"
+                ]
+              }
+            ],
+            "result": {
+              "status": "skipped"
+            },
+            "match": {}
+          },
+          {
+            "name": "I click the \"add trip\" button",
+            "line": 14,
+            "keyword": "And ",
+            "result": {
+              "status": "skipped"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should see \"test trip 1\" in the \"top panel heading\" area",
+            "line": 15,
+            "keyword": "Then ",
+            "result": {
+              "status": "skipped"
+            },
+            "match": {}
+          },
+          {
+            "name": "I click the \"show hide\" button",
+            "line": 16,
+            "keyword": "When ",
+            "result": {
+              "status": "skipped"
+            },
+            "match": {}
+          },
+          {
+            "name": "I should not see the \"people min\" field",
+            "line": 17,
+            "keyword": "Then ",
+            "result": {
+              "status": "ambiguous"
+            },
+            "match": {}
+          },
+          {
+            "keyword": "After ",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 257687030,
+              "error_message": "Error: Angular could not be found on the page [enter%20url] : retries looking for angular exceeded\n    at /home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/lib/protractor.js:675:17\n    at [object Object].promise.Promise.goog.defineClass.invokeCallback_ (/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/../webdriver/promise.js:1337:14)\n    at [object Object].promise.ControlFlow.goog.defineClass.goog.defineClass.abort_.error.executeNext_.execute_ (/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/../webdriver/promise.js:2776:14)\n    at [object Object].promise.ControlFlow.goog.defineClass.goog.defineClass.abort_.error.executeNext_ (/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/../webdriver/promise.js:2758:21)\n    at goog.async.run.processWorkQueue (/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/goog/async/run.js:124:15)\n    at process._tickCallback (node.js:369:9)"
+            },
+            "match": {}
+          },
+          {
+            "keyword": "After ",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 443834
+            },
+            "match": {}
+          }
+        ]
+      }
+    ]
+  }
+]
