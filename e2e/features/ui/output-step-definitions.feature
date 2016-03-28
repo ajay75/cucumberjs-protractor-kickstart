@@ -1,10 +1,6 @@
 Feature: Output all step defintions
 
   @steps
-  Scenario: Output all step defintions
-    Given I run Cucumber with Protractor
-
-  @steps
   Scenario: Form test
     Given I am on the "home" page
     And I fill the form with the following data
