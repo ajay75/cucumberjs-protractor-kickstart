@@ -30,17 +30,12 @@
 ### from repo root folder run:
 * npm install (just once)
 * Symlink to api module: ln -s node_modules/apickli/apickli-gherkin.js  e2e/step-definitions/api/apickli-gherkin.js
-* Run `gulp ui` to run UI tests
-* Run `gulp api` to run API tests
 * To run tests headless, change browserName: 'phantomjs' in conf.js file
 
-* Note: you may need to set proxy for api tests, so run the following:
-        * export http_proxy='http://anl-iron-proxy:80'
-        * export https_proxy='http://anl-iron-proxy:80'
-
+### Run UI test
+node_modules/protractor/bin/protractor ui.conf.js
 
 ### Run API tests in parallel
-
 * node_modules/cucumber-parallel/bin/cucumber-parallel e2e/features/api -r e2e/step-definitions/api --tags=@api --parallel scenarios -f json:report.json
 * gulp parallel:report
 
