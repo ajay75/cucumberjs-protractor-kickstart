@@ -138,7 +138,7 @@ module.exports = function () {
         expect(getVariable[area.replace(/\s+/g, '')].getText()).to.eventually.not.contain(txt).and.notify(callback);
     });
     this.Then(/^I should not see the "([^"]*)" field$/, function (area, callback) {
-        expect(getVariable[area.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
+        expect(getVariable[area.replace(/\s+/g, '')].isPresent()).to.eventually.be.false.and.notify(callback);
     });
 
     this.Then(/^I should see the "([^"]*)" field$/, function (area, callback) {
