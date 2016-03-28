@@ -36,10 +36,6 @@
 * Run `gulp api` to run API tests
 * To run tests headless, change browserName: 'phantomjs' in conf.js file
 
-* Note: you may need to set proxy for api tests, so run the following:
-        * export http_proxy='http://anl-iron-proxy:80'
-        * export https_proxy='http://anl-iron-proxy:80'
-
 ### Run UI tests in parallel
 
 * Run `gulp parallel`
