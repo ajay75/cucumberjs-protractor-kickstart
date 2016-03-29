@@ -24,7 +24,6 @@ Feature: Httpbin.org exposes various resources for HTTP request testing
     When I DELETE /delete
     Then response body should contain hello-world
 
-  @api
   Scenario: Setting body payload from file
     Given I pipe contents of file /home/travis/build/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/fixtures/requestbody.xml to body
     When I POST to /post
