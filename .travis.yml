@@ -14,7 +14,8 @@ before_script:
   - ln -s ../../../node_modules/apickli/apickli-gherkin.js apickli-gherkin.js
 
 script:
- - gulp api
+- cd ../../../
+ - node_modules/protractor/bin/protractor api.conf.js
 
 notifications:
   email:
