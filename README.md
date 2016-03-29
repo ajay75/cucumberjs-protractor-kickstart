@@ -47,4 +47,4 @@
 
 ### Browserstack
 
-* Run `gulp e2e:bs` for regression tests on the browserstack service
+* Run `gulp e2e:bs` for regression tests on browserstack service
