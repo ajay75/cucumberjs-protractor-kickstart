@@ -2,7 +2,7 @@
 
 module.exports = {
     chance: require('chance').Chance(),
-    baseUrl: '[enter url]',
+    baseUrl: 'https://tranquil-reef-9656.herokuapp.com',
     url: function (url) {
         return this.baseUrl + url;
     },
