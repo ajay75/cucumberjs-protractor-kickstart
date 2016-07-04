@@ -7,6 +7,7 @@
 * Install NodeJS
 * npm install -g phantomjs
 * npm install -g gulp
+* cd /repo root folder
 * node_modules/.bin/webdriver-manager update
 * node_modules/.bin/webdriver-manager start
 
