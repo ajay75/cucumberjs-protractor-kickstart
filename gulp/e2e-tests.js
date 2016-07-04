@@ -50,11 +50,11 @@ module.exports = function (options) {
             }))
             .on('error', function (err) {
                 //Make sure failed tests cause gulp to exit non-zero
-                console.log(err);
+//                console.log(err);
                 cb();
             })
             .on('end', function () {
-                //cb();
+                generateApiHtmlReport();
             });
     }
 
