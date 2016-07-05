@@ -1,0 +1,1452 @@
+[
+  {
+    "elements": [
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;setting-headers-in-get-request",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Setting headers in GET request",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 581342
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set User-Agent header to apickli",
+            "result": {
+              "status": "passed",
+              "duration": 686342
+            },
+            "line": 5,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:21"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /get",
+            "result": {
+              "status": "passed",
+              "duration": 394574447
+            },
+            "line": 6,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body path $.headers.User-Agent should be apickli",
+            "result": {
+              "status": "passed",
+              "duration": 3525101
+            },
+            "line": 7,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:210"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;setting-body-payload-in-put-request",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "Setting body payload in PUT request",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 655180
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set body to {\"key\":\"hello-world\"}",
+            "result": {
+              "status": "passed",
+              "duration": 630163
+            },
+            "line": 17,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:31"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I PUT /put",
+            "result": {
+              "status": "passed",
+              "duration": 479018016
+            },
+            "line": 18,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:76"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body should contain hello-world",
+            "result": {
+              "status": "passed",
+              "duration": 483788
+            },
+            "line": 19,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:189"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 15
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;parsing-response-xml-body",
+        "keyword": "Scenario",
+        "line": 39,
+        "name": "Parsing response xml body",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 7287574
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /xml",
+            "result": {
+              "status": "passed",
+              "duration": 429283626
+            },
+            "line": 40,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body path /slideshow/slide[1]/title should be Wake up to WonderWidgets!",
+            "result": {
+              "status": "passed",
+              "duration": 49693878
+            },
+            "line": 41,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:210"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 38
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;setting-body-payload-in-delete-request",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Setting body payload in DELETE request",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 597354
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set body to {\"key\":\"hello-world\"}",
+            "result": {
+              "status": "passed",
+              "duration": 665569
+            },
+            "line": 23,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:31"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I DELETE /delete",
+            "result": {
+              "status": "passed",
+              "duration": 424710775
+            },
+            "line": 24,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:86"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body should contain hello-world",
+            "result": {
+              "status": "passed",
+              "duration": 410798
+            },
+            "line": 25,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:189"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 21
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;response-body-content-type-assertions-(json)",
+        "keyword": "Scenario",
+        "line": 49,
+        "name": "Response body content type assertions (json)",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 543298
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /get",
+            "result": {
+              "status": "passed",
+              "duration": 387010218
+            },
+            "line": 50,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body should be valid json",
+            "result": {
+              "status": "passed",
+              "duration": 2830356
+            },
+            "line": 51,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:137"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 48
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;setting-body-payload-in-post-request",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Setting body payload in POST request",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 588691
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set body to {\"key\":\"hello-world\"}",
+            "result": {
+              "status": "passed",
+              "duration": 608983
+            },
+            "line": 11,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:31"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I POST to /post",
+            "result": {
+              "status": "passed",
+              "duration": 434725459
+            },
+            "line": 12,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:66"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body should contain hello-world",
+            "result": {
+              "status": "passed",
+              "duration": 394678
+            },
+            "line": 13,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:189"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 9
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;response-code-checks",
+        "keyword": "Scenario",
+        "line": 60,
+        "name": "Response code checks",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 549657
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /xml",
+            "result": {
+              "status": "passed",
+              "duration": 367265476
+            },
+            "line": 61,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response code should be 200",
+            "result": {
+              "status": "passed",
+              "duration": 3923829
+            },
+            "line": 62,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:147"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "response code should not be 404",
+            "result": {
+              "status": "passed",
+              "duration": 320134
+            },
+            "line": 63,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:157"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 59
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;checking-values-of-scenario-variables",
+        "keyword": "Scenario",
+        "line": 136,
+        "name": "checking values of scenario variables",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 598090
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "value of scenario variable title should be undefined",
+            "result": {
+              "status": "passed",
+              "duration": 619819
+            },
+            "line": 137,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:289"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 135
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;response-body-content-type-assertions-(xml)",
+        "keyword": "Scenario",
+        "line": 44,
+        "name": "Response body content type assertions (xml)",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 589321
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /xml",
+            "result": {
+              "status": "passed",
+              "duration": 422838383
+            },
+            "line": 45,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body should be valid xml",
+            "result": {
+              "status": "passed",
+              "duration": 28678762
+            },
+            "line": 46,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:137"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 43
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;setting-body-path-as-variable-(xml)",
+        "keyword": "Scenario",
+        "line": 123,
+        "name": "setting body path as variable (xml)",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 646988
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /xml",
+            "result": {
+              "status": "passed",
+              "duration": 337824277
+            },
+            "line": 124,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I store the value of body path /slideshow/slide[2]/title as title in scenario scope",
+            "result": {
+              "status": "passed",
+              "duration": 14464301
+            },
+            "line": 125,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:284"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "value of scenario variable title should be Overview",
+            "result": {
+              "status": "passed",
+              "duration": 251700
+            },
+            "line": 126,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:289"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 122
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;response-body-text-assertions",
+        "keyword": "Scenario",
+        "line": 73,
+        "name": "Response body text assertions",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 559402
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /xml",
+            "result": {
+              "status": "passed",
+              "duration": 346682722
+            },
+            "line": 74,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body should contain WonderWidgets",
+            "result": {
+              "status": "passed",
+              "duration": 292266
+            },
+            "line": 75,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:189"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "response body should contain Wonder[Wdgist]",
+            "result": {
+              "status": "passed",
+              "duration": 164233
+            },
+            "line": 76,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:189"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "response body should not contain boo",
+            "result": {
+              "status": "passed",
+              "duration": 185229
+            },
+            "line": 77,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:199"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 72
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;response-header-value-assertions",
+        "keyword": "Scenario",
+        "line": 66,
+        "name": "Response header value assertions",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 558779
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /xml",
+            "result": {
+              "status": "passed",
+              "duration": 301833661
+            },
+            "line": 67,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response header Content-Type should be application/xml",
+            "result": {
+              "status": "passed",
+              "duration": 887972
+            },
+            "line": 68,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:168"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "response header Content-Type should be [a-z]/xml",
+            "result": {
+              "status": "passed",
+              "duration": 208981
+            },
+            "line": 69,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:168"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "response header Connection should not be boo",
+            "result": {
+              "status": "passed",
+              "duration": 269104
+            },
+            "line": 70,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:178"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 65
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;sending-request-with-basic-auth-authentication",
+        "keyword": "Scenario",
+        "line": 33,
+        "name": "Sending request with basic auth authentication",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 596848
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I have basic authentication credentials username and password",
+            "result": {
+              "status": "passed",
+              "duration": 18508110
+            },
+            "line": 34,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:51"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I POST to /post",
+            "result": {
+              "status": "passed",
+              "duration": 442912068
+            },
+            "line": 35,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:66"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body path $.headers.Authorization should be Basic dXNlcm5hbWU6cGFzc3dvcmQ=",
+            "result": {
+              "status": "passed",
+              "duration": 7116553
+            },
+            "line": 36,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:210"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 32
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;using-access-token",
+        "keyword": "Scenario",
+        "line": 99,
+        "name": "Using access token",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 555091
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set bearer token",
+            "result": {
+              "status": "passed",
+              "duration": 716170
+            },
+            "line": 100,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:264"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /get",
+            "result": {
+              "status": "passed",
+              "duration": 290381922
+            },
+            "line": 101,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body path $.headers.Authorization should be Bearer token123",
+            "result": {
+              "status": "failed",
+              "duration": 5266323,
+              "error_message": "stepContext: \n  scenario: Using access token\n  step:     response body path $.headers.Authorization should be Bearer token123\ntestOutput: \n  success:  false\n  expected: Bearer token123\n  actual:   Bearer undefined\n  response: \n    statusCode: 200\n    headers: \n      server:                           nginx\n      date:                             Tue, 05 Jul 2016 15:53:32 GMT\n      content-type:                     application/json\n      content-length:                   172\n      connection:                       close\n      access-control-allow-origin:      *\n      access-control-allow-credentials: true\n    body: \n      \"\"\"\n        {\n          \"args\": {}, \n          \"headers\": {\n            \"Authorization\": \"Bearer undefined\", \n            \"Host\": \"httpbin.org\"\n          }, \n          \"origin\": \"89.16.226.104\", \n          \"url\": \"http://httpbin.org/get\"\n        }\n        \n      \"\"\""
+            },
+            "line": 102,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:210"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 98
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;quota-testing---second-request",
+        "keyword": "Scenario",
+        "line": 111,
+        "name": "Quota testing - second request",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 545272
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set X-Quota-Remaining header to 9",
+            "result": {
+              "status": "passed",
+              "duration": 640667
+            },
+            "line": 112,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:21"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /get",
+            "result": {
+              "status": "passed",
+              "duration": 238935667
+            },
+            "line": 113,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I store the value of body path $.headers.X-Quota-Remaining as remaining2 in global scope",
+            "result": {
+              "status": "passed",
+              "duration": 4561730
+            },
+            "line": 114,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:274"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 110
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;response-body-jsonpath-assertions",
+        "keyword": "Scenario",
+        "line": 86,
+        "name": "Response body jsonpath assertions",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 569295
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set User-Agent header to apickli",
+            "result": {
+              "status": "passed",
+              "duration": 644913
+            },
+            "line": 87,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:21"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /get",
+            "result": {
+              "status": "passed",
+              "duration": 265837458
+            },
+            "line": 88,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body path $.headers.User-Agent should be [a-z]+",
+            "result": {
+              "status": "passed",
+              "duration": 10468158
+            },
+            "line": 89,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:210"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "response body path $.headers.User-Agent should not be \\d+",
+            "result": {
+              "status": "passed",
+              "duration": 770743
+            },
+            "line": 90,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:220"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 85
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;checking-headers-in-response",
+        "keyword": "Scenario",
+        "line": 54,
+        "name": "Checking headers in response",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 629101
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /xml",
+            "result": {
+              "status": "passed",
+              "duration": 236669208
+            },
+            "line": 55,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response header server should exist",
+            "result": {
+              "status": "passed",
+              "duration": 444477
+            },
+            "line": 56,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:116"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "response header boo should not exist",
+            "result": {
+              "status": "passed",
+              "duration": 306007
+            },
+            "line": 57,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:126"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 53
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;access-token-retrieval-from-response-body-(authorization-code-grant,-password,-client-credentials)",
+        "keyword": "Scenario",
+        "line": 93,
+        "name": "Access token retrieval from response body (authorization code grant, password, client credentials)",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 586066
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set Token header to token123",
+            "result": {
+              "status": "passed",
+              "duration": 1422648
+            },
+            "line": 94,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:21"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /get",
+            "result": {
+              "status": "passed",
+              "duration": 255370037
+            },
+            "line": 95,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I store the value of body path $.headers.Token as access token",
+            "result": {
+              "status": "passed",
+              "duration": 3277489
+            },
+            "line": 96,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:259"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 92
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;setting-body-path-as-variable-(json)",
+        "keyword": "Scenario",
+        "line": 129,
+        "name": "setting body path as variable (json)",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 551688
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set User-Agent header to apickli",
+            "result": {
+              "status": "passed",
+              "duration": 613748
+            },
+            "line": 130,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:21"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /get",
+            "result": {
+              "status": "passed",
+              "duration": 238173937
+            },
+            "line": 131,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I store the value of body path $.headers.User-Agent as agent in scenario scope",
+            "result": {
+              "status": "passed",
+              "duration": 7766696
+            },
+            "line": 132,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:284"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "value of scenario variable agent should be apickli",
+            "result": {
+              "status": "passed",
+              "duration": 442862
+            },
+            "line": 133,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:289"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 128
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;setting-header-value-as-variable",
+        "keyword": "Scenario",
+        "line": 117,
+        "name": "setting header value as variable",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 546515
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /get",
+            "result": {
+              "status": "passed",
+              "duration": 250397710
+            },
+            "line": 118,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I store the value of response header Server as agent in scenario scope",
+            "result": {
+              "status": "passed",
+              "duration": 225817
+            },
+            "line": 119,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:279"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "value of scenario variable agent should be nginx",
+            "result": {
+              "status": "passed",
+              "duration": 290825
+            },
+            "line": 120,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:289"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 116
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;response-body-xpath-assertions",
+        "keyword": "Scenario",
+        "line": 80,
+        "name": "Response body xpath assertions",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 1711569
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /xml",
+            "result": {
+              "status": "passed",
+              "duration": 252173649
+            },
+            "line": 81,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "response body path /slideshow/slide[2]/title should be [a-z]+",
+            "result": {
+              "status": "passed",
+              "duration": 11092754
+            },
+            "line": 82,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:210"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "response body path /slideshow/slide[2]/title should not be \\d+",
+            "result": {
+              "status": "passed",
+              "duration": 1488009
+            },
+            "line": 83,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:220"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 79
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "httpbin.org-exposes-various-resources-for-http-request-testing;quota-testing---first-request",
+        "keyword": "Scenario",
+        "line": 105,
+        "name": "Quota testing - first request",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Before ",
+            "result": {
+              "status": "passed",
+              "duration": 360188
+            },
+            "hidden": true,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/api/api.js:9"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I set X-Quota-Remaining header to 10",
+            "result": {
+              "status": "passed",
+              "duration": 429773
+            },
+            "line": 106,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:21"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I GET /get",
+            "result": {
+              "status": "passed",
+              "duration": 210342858
+            },
+            "line": 107,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:56"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I store the value of body path $.headers.X-Quota-Remaining as remaining1 in global scope",
+            "result": {
+              "status": "passed",
+              "duration": 1955294
+            },
+            "line": 108,
+            "match": {
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/apickli/apickli-gherkin.js:274"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@api",
+            "line": 104
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "httpbin.org-exposes-various-resources-for-http-request-testing",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Httpbin.org exposes various resources for HTTP request testing",
+    "tags": [],
+    "uri": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/features/api/api.feature"
+  }
+]

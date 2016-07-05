@@ -13,11 +13,11 @@
             "name": "I am on the \"home\" page",
             "result": {
               "status": "passed",
-              "duration": 1661697048
+              "duration": 2275277054
             },
             "line": 5,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:12"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:12"
             }
           },
           {
@@ -49,11 +49,11 @@
             "name": "I fill the form with the following data",
             "result": {
               "status": "passed",
-              "duration": 480744165
+              "duration": 1260504250
             },
             "line": 6,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/signin.js:35"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/signin.js:35"
             }
           },
           {
@@ -62,11 +62,11 @@
             "name": "I click the \"add trip\" button",
             "result": {
               "status": "passed",
-              "duration": 99643417
+              "duration": 92839292
             },
             "line": 10,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
             }
           },
           {
@@ -75,11 +75,11 @@
             "name": "I should see \"test\" in the \"top panel heading\" area",
             "result": {
               "status": "passed",
-              "duration": 346481771
+              "duration": 335411801
             },
             "line": 11,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:130"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:130"
             }
           },
           {
@@ -88,11 +88,11 @@
             "name": "I click the \"delete trip\" button",
             "result": {
               "status": "passed",
-              "duration": 79312112
+              "duration": 80430775
             },
             "line": 12,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
             }
           },
           {
@@ -101,11 +101,11 @@
             "name": "I should not see the \"top panel heading\" area",
             "result": {
               "status": "passed",
-              "duration": 125869907
+              "duration": 429979337
             },
             "line": 13,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:142"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:142"
             }
           },
           {
@@ -113,11 +113,11 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 206017
+              "duration": 383293
             },
             "hidden": true,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:13"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:13"
             }
           },
           {
@@ -125,11 +125,11 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 731431
+              "duration": 650769
             },
             "hidden": true,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:9"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:9"
             }
           }
         ],
@@ -153,11 +153,11 @@
             "name": "I am on the \"home\" page",
             "result": {
               "status": "passed",
-              "duration": 425176172
+              "duration": 560438354
             },
             "line": 18,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:12"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:12"
             }
           },
           {
@@ -189,11 +189,11 @@
             "name": "I fill the form with the following data",
             "result": {
               "status": "passed",
-              "duration": 439958450
+              "duration": 432116176
             },
             "line": 19,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/signin.js:35"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/signin.js:35"
             }
           },
           {
@@ -202,11 +202,11 @@
             "name": "I click the \"add trip\" button",
             "result": {
               "status": "passed",
-              "duration": 82471728
+              "duration": 77135574
             },
             "line": 23,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
             }
           },
           {
@@ -215,11 +215,11 @@
             "name": "I should see \"Profit -1% commission\" in the \"trip commission heading\" area",
             "result": {
               "status": "passed",
-              "duration": 333413110
+              "duration": 719352082
             },
             "line": 24,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:130"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:130"
             }
           },
           {
@@ -228,11 +228,11 @@
             "name": "I click the \"delete trip\" button",
             "result": {
               "status": "passed",
-              "duration": 74268570
+              "duration": 76002186
             },
             "line": 25,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
             }
           },
           {
@@ -241,11 +241,11 @@
             "name": "I should not see the \"top panel heading\" area",
             "result": {
               "status": "passed",
-              "duration": 124336518
+              "duration": 326036184
             },
             "line": 26,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:142"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:142"
             }
           },
           {
@@ -253,11 +253,11 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 77971
+              "duration": 159574
             },
             "hidden": true,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:13"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:13"
             }
           },
           {
@@ -265,11 +265,11 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 239917
+              "duration": 276045
             },
             "hidden": true,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:9"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:9"
             }
           }
         ],
@@ -293,11 +293,11 @@
             "name": "I am on the \"home\" page",
             "result": {
               "status": "passed",
-              "duration": 372016927
+              "duration": 464981650
             },
             "line": 31,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:12"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:12"
             }
           },
           {
@@ -329,11 +329,11 @@
             "name": "I fill the form with the following data",
             "result": {
               "status": "passed",
-              "duration": 736118232
+              "duration": 530415014
             },
             "line": 32,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/signin.js:35"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/signin.js:35"
             }
           },
           {
@@ -342,11 +342,11 @@
             "name": "I click the \"add trip\" button",
             "result": {
               "status": "passed",
-              "duration": 71309029
+              "duration": 66054805
             },
             "line": 36,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
             }
           },
           {
@@ -355,11 +355,11 @@
             "name": "I click the \"delete trip\" button",
             "result": {
               "status": "passed",
-              "duration": 591397015
+              "duration": 984153737
             },
             "line": 37,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:23"
             }
           },
           {
@@ -368,12 +368,12 @@
             "name": "I should see the \"top panel heading\" area",
             "result": {
               "status": "failed",
-              "duration": 229354830,
-              "error_message": "AssertionError: expected false to be true\n    at /home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/chai-as-promised/lib/chai-as-promised.js:308:26\n    at Promise.invokeCallback_ (/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1329:14)\n    at TaskQueue.execute_ (/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)\n    at TaskQueue.executeNext_ (/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)\n    at /home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2652:27\n    at /home/jaffamonkey/projects/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:639:7\n    at process._tickCallback (node.js:369:9)"
+              "duration": 1341940000,
+              "error_message": "AssertionError: expected false to be true\n    at /home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/chai-as-promised/lib/chai-as-promised.js:308:26\n    at Promise.invokeCallback_ (/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1329:14)\n    at TaskQueue.execute_ (/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)\n    at TaskQueue.executeNext_ (/home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)\n    at /home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2652:27\n    at /home/jaffamonkey/cucumberjs-protractor-kickstart/node_modules/gulp-protractor/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:639:7\n    at process._tickCallback (node.js:369:9)"
             },
             "line": 38,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:146"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/step-definitions/general.js:146"
             }
           },
           {
@@ -381,7 +381,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 148330004
+              "duration": 150868732
             },
             "hidden": true,
             "embeddings": [
@@ -391,7 +391,7 @@
               }
             ],
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:13"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:13"
             }
           },
           {
@@ -399,11 +399,11 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 255057
+              "duration": 332436
             },
             "hidden": true,
             "match": {
-              "location": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:9"
+              "location": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/support/cucumber-hooks.js:9"
             }
           }
         ],
@@ -421,6 +421,6 @@
     "line": 1,
     "name": "Output all step defintions",
     "tags": [],
-    "uri": "/home/jaffamonkey/projects/cucumberjs-protractor-kickstart/e2e/features/ui/output-step-definitions.feature"
+    "uri": "/home/jaffamonkey/cucumberjs-protractor-kickstart/e2e/features/ui/output-step-definitions.feature"
   }
 ]

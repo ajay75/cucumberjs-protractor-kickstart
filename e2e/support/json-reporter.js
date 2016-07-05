@@ -2,7 +2,7 @@ var Cucumber = require('cucumber');
 var JsonFormatter = Cucumber.Listener.JsonFormatter();
 var fs = require('fs-extra');
 var path = require('path');
-var reportDir = '../reports/json/';
+var reportDir = '../reports/ui/json/';
 var reportFile = reportDir + 'cucumber-test-results.json';
 
 module.exports = function JsonOutputHook() {

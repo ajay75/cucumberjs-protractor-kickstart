@@ -11,7 +11,7 @@ var cucumber = require('gulp-cucumber');
 
 module.exports = function (options) {
     function generateProtractorHtmlReport() {
-        return gulp.src('e2e/reports/json/cucumber-test-results.json')
+        return gulp.src('e2e/reports/ui/json/cucumber-test-results.json')
             .pipe(reporter({
                 dest: 'e2e/reports/ui/html'
             }));
@@ -45,17 +45,17 @@ module.exports = function (options) {
             .pipe(cucumber({
                 'steps': ['e2e/step-definitions/api/*.js'],
                 'format': 'pretty',
-                'path': 'e2e/reports/api/json/report_singlerun.json',
+                'path': 'e2e/reports/api/json/report.json',
                 'tags': '@api'
             }))
             .on('error', function (err) {
                 //Make sure failed tests cause gulp to exit non-zero
-//                console.log(err);
+                console.log(err);
                 cb();
             })
             .on('end', function () {
-                generateApiHtmlReport();
-            });
+//                cb();
+             });
     }
 
     //function runBsProtractor() {
@@ -81,27 +81,27 @@ module.exports = function (options) {
             }))
             .on('error', function (err) {
                 //Make sure failed tests cause gulp to exit non-zero
-                //console.log(err);
+                console.log(err);
                 cb();
             })
             .on('end', function () {
-                //exitProcess();
+//                cb();
             });
     }
 
     function runParallel(cb) {
         return gulp
-            .src(options.e2e + '/features/ui/uiUserJourney.feature')
+            .src(options.e2e + '/features/ui/*.feature')
             .pipe(protractor.protractor({
                 configFile: 'parallel.conf.js'
             }))
             .on('error', function (err) {
                 //Make sure failed tests cause gulp to exit non-zero
                 console.log(err);
-                cb();
             })
             .on('end', function () {
 //                exitProcess()
+                cb();
             });
     }
 

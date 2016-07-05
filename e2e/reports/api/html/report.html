@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/init.js"></script>
+</head>
+<body>
+
+<div class="container">
+<header class="failed">
+    <h1>Cucumber features</h1>
+    <div class="test-summary">
+        <div class="scenarios-summary">22 scenarios ( 21 passed)</div>
+        <div class="steps-summary">87 steps ( 86 passed)</div>
+    </div>
+</header>
+<div class="row">
+    <div class="filtering-buttons">
+        <div class="col-md-9 col-sm-8 main_btns">
+            <div class="btn_menu">
+                <button data-state="all" class="btn all_btn active" id="all_btn">All</button>
+                <button data-state="passed" class="btn passed_btn" id="passed_btn">Passed</button>
+                <button data-state="failed" class="btn error_btn" id="error_btn">Error</button>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4 additional_btns">
+            <div class="btn_support">
+                <button data-state="steps" title="Display all steps within scenario" class="btn fa fa-list btn_list" id="display_btn"></button>
+                <button data-state="chart" title="Display chart" class="btn fa fa-pie-chart btn_chart"></button>
+            </div>
+        </div>
+    </div>
+</div><div class="row">
+    <div class="col-md-9 col-sm-8">
+        <div class="feature">
+            <h2><i class="fa fa-magic"></i> Feature:</h2>
+
+            <div class="feature-description">
+                Httpbin.org exposes various resources for HTTP request testing
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-4 feature-statistics">
+        <div class="scenario-label">Scenarios</div>
+        <div class="scenario-amount-passed"> 21/22 <br/><span>passed</span></div>
+        <div class="clear"></div>
+        <div class="steps-label">Steps</div>
+        <div class="steps-amount-passed"> 86/87 <br/><span>passed</span></div>
+    </div>
+</div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Setting headers in GET request
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set User-Agent header to apickli
+    
+</div><div class="step passed">
+    When I GET /get
+    
+</div><div class="step passed">
+    Then response body path $.headers.User-Agent should be apickli
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Setting body payload in PUT request
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set body to {"key":"hello-world"}
+    
+</div><div class="step passed">
+    When I PUT /put
+    
+</div><div class="step passed">
+    Then response body should contain hello-world
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Parsing response xml body
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /xml
+    
+</div><div class="step passed">
+    Then response body path /slideshow/slide[1]/title should be Wake up to WonderWidgets!
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Setting body payload in DELETE request
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set body to {"key":"hello-world"}
+    
+</div><div class="step passed">
+    When I DELETE /delete
+    
+</div><div class="step passed">
+    Then response body should contain hello-world
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Response body content type assertions (json)
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /get
+    
+</div><div class="step passed">
+    Then response body should be valid json
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Setting body payload in POST request
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set body to {"key":"hello-world"}
+    
+</div><div class="step passed">
+    When I POST to /post
+    
+</div><div class="step passed">
+    Then response body should contain hello-world
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Response code checks
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /xml
+    
+</div><div class="step passed">
+    Then response code should be 200
+    
+</div><div class="step passed">
+    And response code should not be 404
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: checking values of scenario variables
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Then value of scenario variable title should be undefined
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Response body content type assertions (xml)
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /xml
+    
+</div><div class="step passed">
+    Then response body should be valid xml
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: setting body path as variable (xml)
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /xml
+    
+</div><div class="step passed">
+    And I store the value of body path /slideshow/slide[2]/title as title in scenario scope
+    
+</div><div class="step passed">
+    Then value of scenario variable title should be Overview
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Response body text assertions
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /xml
+    
+</div><div class="step passed">
+    Then response body should contain WonderWidgets
+    
+</div><div class="step passed">
+    And response body should contain Wonder[Wdgist]
+    
+</div><div class="step passed">
+    And response body should not contain boo
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Response header value assertions
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /xml
+    
+</div><div class="step passed">
+    Then response header Content-Type should be application/xml
+    
+</div><div class="step passed">
+    And response header Content-Type should be [a-z]/xml
+    
+</div><div class="step passed">
+    And response header Connection should not be boo
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Sending request with basic auth authentication
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I have basic authentication credentials username and password
+    
+</div><div class="step passed">
+    When I POST to /post
+    
+</div><div class="step passed">
+    Then response body path $.headers.Authorization should be Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+    
+</div></div><div class="scenario-container"><div class="scenario failed">
+    Scenario: Using access token
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set bearer token
+    
+</div><div class="step passed">
+    When I GET /get
+    
+</div><div class="step failed">
+    Then response body path $.headers.Authorization should be Bearer token123
+    
+    <div class="error-details">
+        <blockquote>
+            <pre>
+                <code>
+                    &#115;&#116;&#101;&#112;&#67;&#111;&#110;&#116;&#101;&#120;&#116;&#58;&#32;
+&#32;&#32;&#115;&#99;&#101;&#110;&#97;&#114;&#105;&#111;&#58;&#32;&#85;&#115;&#105;&#110;&#103;&#32;&#97;&#99;&#99;&#101;&#115;&#115;&#32;&#116;&#111;&#107;&#101;&#110;
+&#32;&#32;&#115;&#116;&#101;&#112;&#58;&#32;&#32;&#32;&#32;&#32;&#114;&#101;&#115;&#112;&#111;&#110;&#115;&#101;&#32;&#98;&#111;&#100;&#121;&#32;&#112;&#97;&#116;&#104;&#32;&#36;&#46;&#104;&#101;&#97;&#100;&#101;&#114;&#115;&#46;&#65;&#117;&#116;&#104;&#111;&#114;&#105;&#122;&#97;&#116;&#105;&#111;&#110;&#32;&#115;&#104;&#111;&#117;&#108;&#100;&#32;&#98;&#101;&#32;&#66;&#101;&#97;&#114;&#101;&#114;&#32;&#116;&#111;&#107;&#101;&#110;&#49;&#50;&#51;
+&#116;&#101;&#115;&#116;&#79;&#117;&#116;&#112;&#117;&#116;&#58;&#32;
+&#32;&#32;&#115;&#117;&#99;&#99;&#101;&#115;&#115;&#58;&#32;&#32;&#102;&#97;&#108;&#115;&#101;
+&#32;&#32;&#101;&#120;&#112;&#101;&#99;&#116;&#101;&#100;&#58;&#32;&#66;&#101;&#97;&#114;&#101;&#114;&#32;&#116;&#111;&#107;&#101;&#110;&#49;&#50;&#51;
+&#32;&#32;&#97;&#99;&#116;&#117;&#97;&#108;&#58;&#32;&#32;&#32;&#66;&#101;&#97;&#114;&#101;&#114;&#32;&#117;&#110;&#100;&#101;&#102;&#105;&#110;&#101;&#100;
+&#32;&#32;&#114;&#101;&#115;&#112;&#111;&#110;&#115;&#101;&#58;&#32;
+&#32;&#32;&#32;&#32;&#115;&#116;&#97;&#116;&#117;&#115;&#67;&#111;&#100;&#101;&#58;&#32;&#50;&#48;&#48;
+&#32;&#32;&#32;&#32;&#104;&#101;&#97;&#100;&#101;&#114;&#115;&#58;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#115;&#101;&#114;&#118;&#101;&#114;&#58;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#110;&#103;&#105;&#110;&#120;
+&#32;&#32;&#32;&#32;&#32;&#32;&#100;&#97;&#116;&#101;&#58;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#84;&#117;&#101;&#44;&#32;&#48;&#53;&#32;&#74;&#117;&#108;&#32;&#50;&#48;&#49;&#54;&#32;&#49;&#53;&#58;&#53;&#51;&#58;&#51;&#50;&#32;&#71;&#77;&#84;
+&#32;&#32;&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#45;&#116;&#121;&#112;&#101;&#58;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#97;&#112;&#112;&#108;&#105;&#99;&#97;&#116;&#105;&#111;&#110;&#47;&#106;&#115;&#111;&#110;
+&#32;&#32;&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#116;&#101;&#110;&#116;&#45;&#108;&#101;&#110;&#103;&#116;&#104;&#58;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#49;&#55;&#50;
+&#32;&#32;&#32;&#32;&#32;&#32;&#99;&#111;&#110;&#110;&#101;&#99;&#116;&#105;&#111;&#110;&#58;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#99;&#108;&#111;&#115;&#101;
+&#32;&#32;&#32;&#32;&#32;&#32;&#97;&#99;&#99;&#101;&#115;&#115;&#45;&#99;&#111;&#110;&#116;&#114;&#111;&#108;&#45;&#97;&#108;&#108;&#111;&#119;&#45;&#111;&#114;&#105;&#103;&#105;&#110;&#58;&#32;&#32;&#32;&#32;&#32;&#32;&#42;
+&#32;&#32;&#32;&#32;&#32;&#32;&#97;&#99;&#99;&#101;&#115;&#115;&#45;&#99;&#111;&#110;&#116;&#114;&#111;&#108;&#45;&#97;&#108;&#108;&#111;&#119;&#45;&#99;&#114;&#101;&#100;&#101;&#110;&#116;&#105;&#97;&#108;&#115;&#58;&#32;&#116;&#114;&#117;&#101;
+&#32;&#32;&#32;&#32;&#98;&#111;&#100;&#121;&#58;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#34;&#34;&#34;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#123;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#34;&#97;&#114;&#103;&#115;&#34;&#58;&#32;&#123;&#125;&#44;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#34;&#104;&#101;&#97;&#100;&#101;&#114;&#115;&#34;&#58;&#32;&#123;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#34;&#65;&#117;&#116;&#104;&#111;&#114;&#105;&#122;&#97;&#116;&#105;&#111;&#110;&#34;&#58;&#32;&#34;&#66;&#101;&#97;&#114;&#101;&#114;&#32;&#117;&#110;&#100;&#101;&#102;&#105;&#110;&#101;&#100;&#34;&#44;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#34;&#72;&#111;&#115;&#116;&#34;&#58;&#32;&#34;&#104;&#116;&#116;&#112;&#98;&#105;&#110;&#46;&#111;&#114;&#103;&#34;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#125;&#44;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#34;&#111;&#114;&#105;&#103;&#105;&#110;&#34;&#58;&#32;&#34;&#56;&#57;&#46;&#49;&#54;&#46;&#50;&#50;&#54;&#46;&#49;&#48;&#52;&#34;&#44;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#34;&#117;&#114;&#108;&#34;&#58;&#32;&#34;&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#104;&#116;&#116;&#112;&#98;&#105;&#110;&#46;&#111;&#114;&#103;&#47;&#103;&#101;&#116;&#34;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#125;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#34;&#34;&#34;
+                </code>
+            </pre>
+        </blockquote>
+    </div>
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Quota testing - second request
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set X-Quota-Remaining header to 9
+    
+</div><div class="step passed">
+    When I GET /get
+    
+</div><div class="step passed">
+    Then I store the value of body path $.headers.X-Quota-Remaining as remaining2 in global scope
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Response body jsonpath assertions
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set User-Agent header to apickli
+    
+</div><div class="step passed">
+    When I GET /get
+    
+</div><div class="step passed">
+    Then response body path $.headers.User-Agent should be [a-z]+
+    
+</div><div class="step passed">
+    And response body path $.headers.User-Agent should not be \d+
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Checking headers in response
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /xml
+    
+</div><div class="step passed">
+    Then response header server should exist
+    
+</div><div class="step passed">
+    And response header boo should not exist
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Access token retrieval from response body (authorization code grant, password, client credentials)
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set Token header to token123
+    
+</div><div class="step passed">
+    When I GET /get
+    
+</div><div class="step passed">
+    Then I store the value of body path $.headers.Token as access token
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: setting body path as variable (json)
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set User-Agent header to apickli
+    
+</div><div class="step passed">
+    When I GET /get
+    
+</div><div class="step passed">
+    And I store the value of body path $.headers.User-Agent as agent in scenario scope
+    
+</div><div class="step passed">
+    Then value of scenario variable agent should be apickli
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: setting header value as variable
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /get
+    
+</div><div class="step passed">
+    Then I store the value of response header Server as agent in scenario scope
+    
+</div><div class="step passed">
+    And value of scenario variable agent should be nginx
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Response body xpath assertions
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    When I GET /xml
+    
+</div><div class="step passed">
+    Then response body path /slideshow/slide[2]/title should be [a-z]+
+    
+</div><div class="step passed">
+    And response body path /slideshow/slide[2]/title should not be \d+
+    
+</div></div><div class="scenario-container"><div class="scenario passed">
+    Scenario: Quota testing - first request
+</div><div class="step passed">
+    Before undefined
+    
+</div><div class="step passed">
+    Given I set X-Quota-Remaining header to 10
+    
+</div><div class="step passed">
+    When I GET /get
+    
+</div><div class="step passed">
+    Then I store the value of body path $.headers.X-Quota-Remaining as remaining1 in global scope
+    
+</div></div>
+
+    <div class="scenario-chart">
+        <div class="close_chart fa fa-times"></div>
+        <h1 class="chart-title">Scenario statistics</h1>
+        <canvas id="chart" class="chart" width="400" height="400">Your browser doesn't support HTML5 Canvas.</canvas>
+        <div class="legend-details">
+            <h2 class="chart-legend" id="legend">Legend: </h2>
+
+            <div class="legend_passed">passed</div>
+            <div class="legend_failed">failed</div>
+        </div>
+    </div>
+</div>
+ <div class="document_container"></div>
+</body>
+</html>
