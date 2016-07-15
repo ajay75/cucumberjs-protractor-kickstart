@@ -34,6 +34,7 @@
 * npm install (just once)
 * Symlink to api module: ln -s node_modules/apickli/apickli-gherkin.js  e2e/step-definitions/api/apickli-gherkin.js
 * Run `gulp ui` to run UI tests
+* Run `gulp headless` to run headless-browser UI tests
 * Run `gulp api` to run API tests
 * To run tests headless, change browserName: 'phantomjs' in conf.js file
 
@@ -43,8 +44,7 @@
 
 ### Run API tests in parallel
 
-* node_modules/cucumber-parallel/bin/cucumber-parallel e2e/features/api -r e2e/step-definitions/api --tags=@api --parallel scenarios -f json:report.json
-* gulp parallel:report
+* ./run_api_tests_parallel.sh
 
 ### Browserstack
 
