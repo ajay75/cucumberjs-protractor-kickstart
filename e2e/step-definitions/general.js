@@ -34,6 +34,23 @@ module.exports = function () {
         expect(getVariable[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).and.notify(callback);
     });
 
+    this.Then(/^I should see total price multiplied by "([^"]*)"$/, function (arg1) {
+        var newtotal = '£' + (singledealprice * arg1);
+        var fieldName = 'total price';
+        var totalPrice = getVariable[fieldName.replace(/\s+/g, '')];
+        chai.assert(totalPrice, newtotal);
+    });
+
+    this.Given(/^I click first deal in search results$/, function () {
+        return element(by.css('.deal-sm')).click();
+    });
+
+    this.Given(/^I wait for payment gateway$/, function () {
+        var EC = protractor.ExpectedConditions;
+        var el = element(by.css('[aria-disabled="false"]'));
+        return browser.wait(EC.visibilityOf(el));
+    });
+
     this.When(/^I switch to iframe "([^"]*)"$/, function (arg1, callback) {
         browser.ignoreSynchronization = true;
         browser.switchTo().frame(browser.driver.findElement(By.name(arg1))).then(callback);
@@ -47,7 +64,7 @@ module.exports = function () {
         waitForElementToBePresent('css', '.search-results')
     });
 
-    this.Given(/^I wait for modal to load$/, function () {
+    this.Given(/^I wait for subscription modal to load$/, function () {
         var EC = protractor.ExpectedConditions;
         var el = element(by.model('modal.formValues.email'));
         return browser.wait(EC.not(EC.presenceOf(el)));
@@ -58,8 +75,8 @@ module.exports = function () {
             var buttonName = 'fb login';
             browser.switchTo().window(handles[1]);
             browser.ignoreSynchronization = true;
-            fillField('facebook id', '[email address]');
-            fillField('facebook password', '[passwor]);
+            fillField('facebook id', 'paul.littlebury@test.co.uk');
+            fillField('facebook password', 'Sunshinee@');
             return getVariable[buttonName.replace(/\s+/g, '')].click().then(function () {
                 browser.switchTo().window(handles[0]);
                 browser.ignoreSynchronization = false;
