@@ -20,8 +20,8 @@ module.exports = function () {
         });
     });
 
-    this.Given(/^I click the "([^"]*)" button$/, function (fieldname, callback) {
-        getVariable[fieldname.replace(/\s+/g, '')].click().then(callback);
+    this.Given(/^I click the "([^"]*)" (button|checkbox|tab)$/, function (fieldname, buttontype) {
+            return getVariable[fieldname.replace(/\s+/g, '')].click();
     });
 
     this.Given(/^I click "([^"]*)"$/, function (fieldname, callback) {
