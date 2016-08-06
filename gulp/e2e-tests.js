@@ -89,6 +89,22 @@ module.exports = function (options) {
             });
     }
 
+    function runHeadlessProtractor(cb) {
+        return gulp
+            .src(options.e2e + '/features/ui/*.feature')
+            .pipe(protractor.protractor({
+                configFile: 'headless.conf.js'
+            }))
+            .on('error', function (err) {
+                //Make sure failed tests cause gulp to exit non-zero
+                console.log(err);
+                cb();
+            })
+            .on('end', function () {
+//                cb();
+            });
+    }
+
     function runParallel(cb) {
         return gulp
             .src(options.e2e + '/features/ui/*.feature')
@@ -124,9 +140,11 @@ module.exports = function (options) {
     gulp.task('protractor', ['clean-protractor-report-api'], runProtractor);
     gulp.task('protractor2', ['clean-protractor-report'], runUIProtractor);
     gulp.task('protractor3', ['clean-protractor-report'], runParallel);
+    gulp.task('protractor4', ['clean-protractor-report'], runHeadlessProtractor);
     //gulp.task('protractor:bs', ['clean-protractor-report'], runBsProtractor);
     gulp.task('api', ['protractor'], generateApiHtmlReport);
     gulp.task('ui', ['protractor2'], generateProtractorHtmlReport);
+    gulp.task('headless', ['protractor4'], generateProtractorHtmlReport);
     gulp.task('parallel:report', ['parallel-api-report']);
     gulp.task('parallel', ['protractor3'], generateProtractorHtmlReport);
     //gulp.task('e2e:bs', ['protractor:bs'], exitProcess);

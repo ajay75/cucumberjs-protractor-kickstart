@@ -1,23 +1,23 @@
 var SelectWrapper = function (selector) {
-    this.webElement = element(selector);
+	this.webElement = element(selector);
 };
 SelectWrapper.prototype.getOptions = function () {
-    return this.webElement.all(by.tagName('option'));
+	return this.webElement.all(by.tagName('option'));
 };
 SelectWrapper.prototype.getSelectedOptions = function () {
-    return this.webElement.all(by.css('option[selected="selected"]'));
+	return this.webElement.all(by.css('option[selected="selected"]'));
 };
 SelectWrapper.prototype.selectByValue = function (value) {
-    return this.webElement.all(by.css('option[value="' + value + '"]')).click();
+	return this.webElement.all(by.css('option[value="' + value + '"]')).click();
 };
 SelectWrapper.prototype.selectByPartialText = function (text) {
-    return this.webElement.all(by.cssContainingText('option', text)).click();
+	return this.webElement.all(by.cssContainingText('option', text)).click();
 };
 SelectWrapper.prototype.selectByLabel = function (text) {
-    return this.webElement.all(by.css('label', text)).click();
+	return this.webElement.all(by.css('label', text)).click();
 };
 SelectWrapper.prototype.selectByText = function (text) {
-    return this.webElement.all(by.xpath('option[.="' + text + '"]')).click();
+	return this.webElement.all(by.xpath('option[.="' + text + '"]')).click();
 };
 
 module.exports = SelectWrapper;

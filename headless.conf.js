@@ -25,7 +25,7 @@ exports.config = {
       'e2e/support/*.js'
     ],
     format: 'pretty',
-    tags: '@bdd'
+    tags: '@steps'
   },
   maxSessions: 1
 };
