@@ -8,7 +8,7 @@ chai.use(require('chai-as-promised'));
 var expect = chai.expect;
 
 module.exports = function () {
-    this.Given(/^I am logged in as "([^"]*)"$/, function (userid, callback) {
+    this.Given(/^I am logged in as (.*)$/, function (userid, callback) {
         browser.get(settings.url(settings.pages.public.login));
         signIn.userid.sendKeys(userid);
         signIn.next.click();

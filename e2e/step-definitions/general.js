@@ -9,32 +9,32 @@ var SelectWrapper = require('../support/select-wrapper');
 var currentgeneratedEmail;
 
 module.exports = function () {
-    this.Given(/^I am on the "([^"]*)" page$/, function (pagename, callback) {
+    this.Given(/^I am on the (.*) page$/, function (pagename, callback) {
         browser.get(settings.url(settings.pages.public[pagename])).then(callback);
     });
 
-    this.Given(/^I am on "([^"]*)"$/, function (destUrl, callback) {
+    this.Given(/^I am on (.*)$/, function (destUrl, callback) {
         var currentUrl = settings.baseUrl + destUrl;
         browser.get(settings.baseUrl + destUrl).then(function (url) {
             expect(browser.getCurrentUrl()).to.eventually.equal(currentUrl).and.notify(callback);
         });
     });
 
-    this.Given(/^I click the "([^"]*)" button$/, function (fieldname, callback) {
+    this.Given(/^I click the (.*) button$/, function (fieldname, callback) {
         getVariable[fieldname.replace(/\s+/g, '')].click().then(callback);
     });
 
-    this.Given(/^I click "([^"]*)"$/, function (fieldname, callback) {
+    this.Given(/^I click (.*)$/, function (fieldname, callback) {
         expect(getVariable[fieldname.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).then(function () {
             getVariable[fieldname.replace(/\s+/g, '')].click().then(callback);
         });
     });
 
-    this.Then(/^I should see the "([^"]*)" field$/, function (elementName, callback) {
+    this.Then(/^I should see the (.*) field$/, function (elementName, callback) {
         expect(getVariable[elementName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).and.notify(callback);
     });
 
-    this.Then(/^I should see total price multiplied by "([^"]*)"$/, function (arg1) {
+    this.Then(/^I should see total price multiplied by (.*)$/, function (arg1) {
         var newtotal = '£' + (singledealprice * arg1);
         var fieldName = 'total price';
         var totalPrice = getVariable[fieldName.replace(/\s+/g, '')];
@@ -51,12 +51,12 @@ module.exports = function () {
         return browser.wait(EC.visibilityOf(el));
     });
 
-    this.When(/^I switch to iframe "([^"]*)"$/, function (arg1, callback) {
+    this.When(/^I switch to iframe (.*)$/, function (arg1, callback) {
         browser.ignoreSynchronization = true;
         browser.switchTo().frame(browser.driver.findElement(By.name(arg1))).then(callback);
     });
 
-    this.When(/^I switch away from iframe "([^"]*)"$/, function (arg1) {
+    this.When(/^I switch away from iframe (.*)$/, function (arg1) {
         browser.driver.switchTo().defaultContent();
     });
 
@@ -86,7 +86,7 @@ module.exports = function () {
         return expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true);
     });
 
-    this.Given(/^I fill in "([^"]*)" with "([^"]*)"$/, function (fieldName, fieldValue, callback) {
+    this.Given(/^I fill in (.*) with (.*)$/, function (fieldName, fieldValue, callback) {
         if (fieldValue == 'randomemail') {
             enterRandomEmail(fieldName);
             expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true).and.notify(callback);
@@ -97,53 +97,53 @@ module.exports = function () {
         }
     });
 
-    this.Given(/^I fill in dropdown "([^"]*)" with "([^"]*)"$/, function (fieldName, fieldValue) {
+    this.Given(/^I fill in dropdown (.*) with (.*)$/, function (fieldName, fieldValue) {
         var fieldEl = getVariable[fieldName.replace(/\s+/g, '')];
         fieldEl.sendKeys(fieldValue);
     });
 
 
-    this.Given(/^I fill in "([^"]*)" with the newly created email id$/, function (fieldName, callback) {
+    this.Given(/^I fill in (.*) with the newly created email id$/, function (fieldName, callback) {
         fillField(fieldName, currentgeneratedEmail);
         callback();
     });
 
-    this.Given(/^I select "([^"]*)" from "([^"]*)" dropdown$/, function (fieldValue, fieldName, callback) {
+    this.Given(/^I select (.*) from (.*) dropdown$/, function (fieldValue, fieldName, callback) {
         var dropdownField = getVariable[fieldName.replace(/\s+/g, '')];
         dropdownField.click();
         element.all(by.css('.ui-select-choices-row-inner')).first().click().then(callback);
     });
 
-    this.Given(/^I select "([^"]*)" from "([^"]*)"$/, function (fieldValue, fieldName, callback) {
+    this.Given(/^I select (.*) from (.*)$/, function (fieldValue, fieldName, callback) {
         var dropdownField = getVariable[fieldName.replace(/\s+/g, '')];
         sendKeys(dropdownField, fieldValue);
         dropdownField.sendKeys(protractor.Key.TAB).then(callback);
     });
 
-    this.Given(/^I select "([^"]*)" from dropdown "([^"]*)"$/, function (ddValue, ddName, callback) {
+    this.Given(/^I select (.*) from dropdown (.*)$/, function (ddValue, ddName, callback) {
         var ddCss = getVariable[ddName.replace(/\s+/g, '')];
         var mySelect = new SelectWrapper(by.css(ddCss));
         sendKeys(mySelect, ddValue);
         mySelect.selectByLabel(ddValue).then(callback);
     });
 
-    this.Then(/^I should see "([^"]*)" in the "([^"]*)" area$/, function (txt, area, callback) {
+    this.Then(/^I should see (.*) in the (.*) area$/, function (txt, area, callback) {
         var theArea = getVariable[area.replace(/\s+/g, '')].getText();
         expect(theArea.getText()).to.eventually.contain(txt).then(function () {
             callback();
         });
     });
 
-    this.Then(/^I should not see "([^"]*)" in the "([^"]*)" area$/, function (txt, area, callback) {
+    this.Then(/^I should not see (.*) in the (.*) area$/, function (txt, area, callback) {
         expect(getVariable[area.replace(/\s+/g, '')].getText()).to.eventually.not.contain(txt).then(function () {
             callback();
         });
     });
-    this.Then(/^I should not see the "([^"]*)" area$/, function (area, callback) {
+    this.Then(/^I should not see the (.*) area$/, function (area, callback) {
         expect(getVariable[area.replace(/\s+/g, '')].isPresent()).to.eventually.be.false.and.notify(callback);
     });
 
-    this.Then(/^I should see the "([^"]*)" area$/, function (area, callback) {
+    this.Then(/^I should see the (.*) area$/, function (area, callback) {
         expect(getVariable[area.replace(/\s+/g, '')].isPresent()).to.eventually.be.true.and.notify(callback);
     });
 
