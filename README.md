@@ -33,10 +33,18 @@
 ### from repo root folder run:
 * npm install (just once)
 * Symlink to api module: ln -s node_modules/apickli/apickli-gherkin.js  e2e/step-definitions/api/apickli-gherkin.js
+* Always run `NODE_ENV={environment}` prior to running any tests (e.g. NODE_ENV=development)
+**_By default, if this value of NODE_ENV is not set before running tests, the tests will run against development url.
+Currently the two settings available are 'development' and 'localhost'_**
+
+#### API
+* Run `gulp api` to run API tests
+
+#### UI (Using webdriver)
+* gulp webdriver-update
+* gulp webdriver-standalone
 * Run `gulp ui` to run UI tests
 * Run `gulp headless` to run headless-browser UI tests
-* Run `gulp api` to run API tests
-* To run tests headless, change browserName: 'phantomjs' in conf.js file
 
 ### Run UI tests in parallel
 

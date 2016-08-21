@@ -1,9 +1,9 @@
 'use strict';
 
-var settings = require('../e2e-settings');
-var signIn = require('./elementmap.po.js');
+var settings = require('../../e2e-settings');
+var signIn = require('../elementmap.po.js');
 var chai = require('chai');
-var getVariable = require('./elementmap.po.js');
+var getVariable = require('../elementmap.po.js');
 chai.use(require('chai-as-promised'));
 var expect = chai.expect;
 
@@ -32,33 +32,20 @@ module.exports = function () {
 		expect(browser.getCurrentUrl()).to.eventually.not.equal(browser.get(settings.url('login'))).then(callback);
 	});
 
-	this.When(/^I fill the form with the following data$/, function (table, callback) {
-		var inputData;
-		var fieldEl;
-		var data = table.hashes();
-		for (var i = 0; i < data.length; i++) {
-			inputData = data[i].field;
-			fieldEl = getVariable[inputData.replace(/\s+/g, '')];
-			fieldEl.clear();
-			var p = fieldEl.sendKeys(data[i].content);
-			if (i === data.length - 1) {
-				p.then(callback);
-			}
-		}
-	});
-
-	this.When(/^I should see updated form data$/, function (table, callback) {
-		var inputData;
-		var fieldEl;
-		var data = table.hashes();
-		for (var i = 0; i < data.length; i++) {
-			inputData = 'user profile';
-			fieldEl = getVariable[inputData.replace(/\s+/g, '')];
-			var p = expect(fieldEl.getText()).to.eventually.contain(data[i].content);
-			if (i === data.length - 1) {
-				p.then(callback);
-			}
-		}
+	this.Given(/^I login with with non-angular facebook popup$/, function () {
+		browser.getAllWindowHandles().then(function (handles) {
+			var buttonName = 'fb login';
+			browser.switchTo().window(handles[1]);
+			browser.ignoreSynchronization = true;
+			fillField('facebook id', 'paul.littlebury@test.co.uk');
+			fillField('facebook password', 'Sunshinee@');
+			return getVariable[buttonName.replace(/\s+/g, '')].click().then(function () {
+				browser.switchTo().window(handles[0]);
+				browser.ignoreSynchronization = false;
+			});
+		});
+		var fieldName = 'login success';
+		return expect(getVariable[fieldName.replace(/\s+/g, '')].isPresent()).to.eventually.equal(true);
 	});
 
 	function fillField(fieldName, fieldValue) {

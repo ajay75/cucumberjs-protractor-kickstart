@@ -21,7 +21,7 @@ exports.config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
     require: [
-      'e2e/step-definitions/*.js',
+      'e2e/step-definitions/**/*.js',
       'e2e/support/*.js'
     ],
     format: 'pretty',

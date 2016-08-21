@@ -7,7 +7,7 @@ exports.config = {
 
     framework: 'cucumber',
     cucumberOpts: {
-        require: ['e2e/step-definitions/api/*.js',
+        require: ['e2e/step-definitions/**/*.js',
             'node_modules/apickli/apickli-gherkin.js',
             'e2e/support/*.js'
         ],

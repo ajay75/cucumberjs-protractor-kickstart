@@ -6,26 +6,28 @@
     "api": "gulp api"
   },
   "devDependencies": {
-    "apickli": "latest",
-    "chai": "^3.0.0",
-    "chai-as-promised": "^5.1.0",
-    "chance": "latest",
-    "cucumberjs-json-api-mocking": "^1.0.7",
-    "cucumber-parallel": "^0.1.9",
-    "del": "~1.1.1",
-    "fs-extra": "^0.22.1",
-    "gulp": "latest",
-    "gulp-browserstack": "latest",
-    "gulp-cucumber": "latest",
-    "gulp-protractor": "latest",
-    "gulp-protractor-cucumber-html-report": "0.1.0",
-    "gulp-util": "~3.0.2",
-    "mkdirp": "^0.5.1",
-    "protractor-cucumber-framework": "^0.6.0",
-    "wrench": "~1.5.8",
-    "prettyjson":"latest"
+    "apickli": "1.7.0",
+    "chai": "3.0.0",
+    "chai-as-promised": "5.1.0",
+    "chance": "1.0.4",
+    "cucumber-parallel": "0.1.9",
+    "del": "1.1.1",
+    "fs-extra": "0.30.0",
+    "gulp": "3.9.1",
+    "gulp-browserstack": "1.0.3",
+    "gulp-cucumber": "0.0.22",
+    "gulp-environments": "^0.1.1",
+    "gulp-mysql-command-file-processor": "^1.0.5",
+    "gulp-protractor": "2.5.0",
+    "gulp-protractor-cucumber-html-report": "0.1.2",
+    "gulp-util": "3.0.2",
+    "mkdirp": "0.5.1",
+    "protractor-cucumber-framework": "0.6.0",
+    "wrench": "1.5.9",
+    "xpath-builder": "0.0.7",
+    "yargs": "5.0.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.4.0"
   }
 }
