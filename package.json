@@ -6,7 +6,7 @@
     "api": "gulp api"
   },
   "devDependencies": {
-    "apickli": "1.7.0",
+    "apickli": "latest",
     "chai": "3.0.0",
     "chai-as-promised": "5.1.0",
     "chance": "1.0.4",
@@ -25,7 +25,8 @@
     "protractor-cucumber-framework": "0.6.0",
     "wrench": "1.5.9",
     "xpath-builder": "0.0.7",
-    "yargs": "5.0.0"
+    "yargs": "5.0.0",
+    "prettyjson": "latest"
   },
   "engines": {
     "node": ">=4.4.0"

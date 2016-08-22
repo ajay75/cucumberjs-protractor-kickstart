@@ -1,6 +1,5 @@
 /* jslint node: true */
 'use strict';
-
 var prettyJson = require('prettyjson');
 
 var stepContext = {};
