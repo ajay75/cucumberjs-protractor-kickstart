@@ -33,7 +33,7 @@
 ### from repo root folder run:
 * npm install (just once)
 * Symlink to api module: ln -s node_modules/apickli/apickli-gherkin.js  e2e/step-definitions/api/apickli-gherkin.js
-* Always run `NODE_ENV={environment}` prior to running any tests (e.g. NODE_ENV=development)
+* Always run `export NODE_ENV={environment}` prior to running any tests (e.g. export NODE_ENV=development)
 **_By default, if this value of NODE_ENV is not set before running tests, the tests will run against development url.
 Currently the two settings available are 'development' and 'localhost'_**
 
@@ -44,16 +44,30 @@ Currently the two settings available are 'development' and 'localhost'_**
 * gulp webdriver-update
 * gulp webdriver-standalone
 * Run `gulp ui` to run UI tests
-* Run `gulp headless` to run headless-browser UI tests
+* Run `gulp api` to run headless-browser UI tests
 
 ### Run UI tests in parallel
 
-* Run `gulp parallel`
-
-### Run API tests in parallel
-
-* ./run_api_tests_parallel.sh
+* Run `gulp parallel-ui`
 
 ### Browserstack
 
-* Run `gulp e2e:bs` for regression tests on browserstack service
+* Run `gulp bs` for regression tests on browserstack service
+
+
+**_To view the the report after running the above gulp commands, run the following gulp tasks to generate the html report._**
+
+* gulp clean-json
+* gulp protractor-report
+
+** Or use shell scripts provided
+
+* Run `./run_api_tests.sh` to run api tests
+* Run `./run_ui_tests.sh` to run ui tests
+* Run `./run_ui_tests_parallel.sh` to run ui tests in parallel mode
+* Run `./run_api_tests_parallel.sh` to run api tests in parallel mode
+
+### Run selected test with optional tag
+* An optional tag can be passed during when the gulp task is invoked e.g `gulp ci --tag @tagNameHere` will only run
+tests tagged with `@tagNameHere`.
+* If the optional tag is missing the gulp task will run all tests set in the `{{gulTaskConfig}}.config.js` file as a fallback

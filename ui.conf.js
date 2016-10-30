@@ -9,14 +9,13 @@ exports.config = {
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
-    browserName: 'chrome',
+    browserName: 'phantomjs',
     timeout : 200000,
     debug: true
   },
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.
-  specs: 'e2e/features/ui/*.feature',
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {

@@ -1,4 +1,4 @@
 #!/bin/bash
-gulp parallel-api
+gulp parallel-ui
 gulp clean-json
 gulp protractor-report

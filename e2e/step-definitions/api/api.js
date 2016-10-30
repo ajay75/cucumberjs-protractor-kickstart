@@ -7,7 +7,14 @@ var createdEmail;
 module.exports = function () {
 	// cleanup before every scenario
 	this.Before(function () {
-		this.apickli = new apickli.Apickli('http', 'httpbin.org');
+		switch (process.env.NODE_ENV) {
+			case 'test':
+				return this.apickli = new apickli.Apickli('http', 'httpbin.org');
+			case 'development':
+				return this.apickli = new apickli.Apickli('http', 'httpbin.org');
+			case 'localhost':
+				return this.apickli = new apickli.Apickli('http', 'localhost');
+		}
 	});
 
 	this.Then(/^I create random registration details$/, function (callback) {
