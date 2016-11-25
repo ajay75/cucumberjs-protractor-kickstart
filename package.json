@@ -19,6 +19,7 @@
     "gulp-insert": "0.5.0",
     "gulp-protractor": "3.0.0",
     "gulp-replace": "0.5.4",
+    "gulp-util": "latest",
     "mkdirp": "0.5.1",
     "protractor-console": "^2.0.1",
     "protractor-cucumber-framework": "0.6.0",
