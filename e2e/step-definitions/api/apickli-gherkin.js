@@ -1,5 +1,6 @@
 /* jslint node: true */
 'use strict';
+
 var prettyJson = require('prettyjson');
 
 var stepContext = {};
@@ -11,7 +12,7 @@ module.exports = function () {
 		callback();
 	});
 
-	this.registerHandler('BeforeStep', function (event, callback) {
+	this.registerHandler('BeforeStep', function(event, callback) {
 		var step = event.getPayloadItem('step');
 		stepContext.step = step.getName();
 		callback();
@@ -22,7 +23,7 @@ module.exports = function () {
 		callback();
 	});
 
-	this.Given(/^I set headers to$/, function (headers, callback) {
+	this.Given(/^I set headers to$/, function(headers, callback) {
 		this.apickli.setHeaders(headers.hashes());
 		callback();
 	});
@@ -42,7 +43,7 @@ module.exports = function () {
 		});
 	});
 
-	this.Given(/^I set query parameters to$/, function (queryParameters, callback) {
+	this.Given(/^I set query parameters to$/, function(queryParameters, callback) {
 		this.apickli.setQueryParameters(queryParameters.hashes());
 		callback();
 	});
@@ -102,8 +103,8 @@ module.exports = function () {
 		});
 	});
 
-	this.When('I request OPTIONS for $resource', function (resource, callback) {
-		this.apickli.options(resource, function (error, response) {
+	this.When('I request OPTIONS for $resource', function(resource, callback) {
+		this.apickli.options(resource, function(error, response) {
 			if (error) {
 				callback(new Error(error));
 			}
@@ -227,7 +228,7 @@ module.exports = function () {
 		}
 	});
 
-	this.Then(/^response body path (.*) should be of type array$/, function (path, callback) {
+	this.Then(/^response body path (.*) should be of type array$/, function(path, callback) {
 		var assertion = this.apickli.assertPathIsArray(path);
 		if (assertion.success) {
 			callback();
@@ -236,7 +237,7 @@ module.exports = function () {
 		}
 	});
 
-	this.Then(/^response body path (.*) should be of type array with length (.*)$/, function (path, length, callback) {
+	this.Then(/^response body path (.*) should be of type array with length (.*)$/, function(path, length, callback) {
 		var assertion = this.apickli.assertPathIsArrayWithLength(path, length);
 		if (assertion.success) {
 			callback();
@@ -245,7 +246,7 @@ module.exports = function () {
 		}
 	});
 
-	this.Then(/^response body should be valid according to schema file (.*)$/, function (schemaFile, callback) {
+	this.Then(/^response body should be valid according to schema file (.*)$/, function(schemaFile, callback) {
 		this.apickli.validateResponseWithSchema(schemaFile, function (assertion) {
 			if (assertion.success) {
 				callback();
@@ -294,7 +295,7 @@ module.exports = function () {
 	});
 };
 
-var prettyPrintJson = function (json) {
+var prettyPrintJson = function(json) {
 	var output = {
 		stepContext: stepContext,
 		testOutput: json
