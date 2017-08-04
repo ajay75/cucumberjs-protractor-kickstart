@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/jaffamonkey/cucumberjs-protractor-kickstart.svg?branch=master)](https://travis-ci.org/jaffamonkey/cucumberjs-protractor-kickstart)
+[![Known Vulnerabilities](https://snyk.io/test/github/jaffamonkey/cucumberjs-protractor-kickstart/badge.svg)](https://snyk.io/test/github/jaffamonkey/cucumberjs-protractor-kickstart)
 
 # README
 
